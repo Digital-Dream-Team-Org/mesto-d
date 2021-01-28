@@ -1,0 +1,324 @@
+<<<<<<< HEAD
+// Import global vars
+@import "master";
+@import "fonts";
+
+=======
+// Импортируем глобальные переменные
+@import "master";
+>>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
+html,
+body {
+  height: 100%;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+<<<<<<< HEAD
+  font-family: "Montserrat", sans-serif;
+  // font-family: "Roboto", sans-serif;
+
+  color: #fff;
+  background-color: #000;
+}
+.main-content {
+  flex: 1 0 auto;
+}
+.main-footer {
+=======
+  font-family: "Open Sans", sans-serif;
+
+  // remove on work
+  // just to make sure css imported
+  color: #fff;
+  background: red;
+}
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+>>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
+  flex-shrink: 0;
+}
+
+img {
+<<<<<<< HEAD
+  max-width: 100%;
+}
+
+p {
+  line-height: 150%;
+}
+
+.mtp-50 {
+  margin-top: 50px;
+}
+
+.mrp-10 {
+  margin-right: 10px;
+}
+
+.mbp-10 {
+  margin-bottom: 10px;
+}
+.mbp-20 {
+  margin-bottom: 20px;
+}
+.mbp-40 {
+  margin-bottom: 40px;
+}
+
+.section {
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 130%;
+    margin-bottom: 20px;
+  }
+  &__small-title {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 130%;
+    /* identical to box height, or 12px */
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    opacity: 0.4;
+  }
+
+  &-hero {
+    min-height: 800px;
+    &__composit-title {
+      &-container {
+        display: flex;
+        align-items: center;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        margin-left: 40px;
+      }
+      &-img {
+        &-wrap {
+          margin-right: 30px;
+        }
+      }
+
+      &-1 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 100%;
+      }
+      &-2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 82px;
+        line-height: 100%;
+        /* or 82px */
+
+        letter-spacing: 0.02em;
+      }
+      &-3 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 100%;
+      }
+    }
+    &__subtitle {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 32px;
+      line-height: 150%;
+
+      margin-bottom: 40px;
+    }
+  }
+  &-shows {
+    min-height: 480px;
+  }
+  &-player {
+    min-height: 480px;
+  }
+  &-team {
+    margin-bottom: 130px;
+  }
+  &-footer {
+    padding-bottom: 30px;
+  }
+}
+
+.card-section {
+  background: #fff;
+  color: #000;
+  border-radius: 25px;
+  padding: 40px;
+}
+
+.store-btn {
+  background: none;
+  border: none;
+  outline: none !important;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.tag-label {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  color: rgba(#000000, 0.4);
+
+  padding: 2px 5px;
+
+  background: #fdda40;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.tag-hint {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 9px;
+  line-height: 130%;
+  /* identical to box height, or 12px */
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  opacity: 0.4;
+}
+
+.icon-elements {
+  display: flex;
+  flex-wrap: wrap;
+}
+.icon-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 70px;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__i {
+    &-wrap {
+      margin-bottom: 10px;
+    }
+    font-size: 24px;
+    color: #fff;
+  }
+  &__text {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 140%;
+    /* or 13px */
+
+    text-align: center;
+
+    color: #ffffff;
+
+    opacity: 0.5;
+  }
+}
+
+.team-member {
+  margin-bottom: 15px;
+  &__position {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 130%;
+    /* or 16px */
+
+    color: rgba(0, 0, 0, 0.5);
+
+    margin-bottom: 0;
+  }
+  &__name {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 130%;
+    /* or 18px */
+
+    margin-bottom: 0;
+  }
+}
+
+.footer-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+.footer-contacts {
+  margin-bottom: 30px;
+}
+.footer-contact-btn {
+  &-wrap {
+    margin-bottom: 20px;
+  }
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 34px;
+
+  color: #fff !important;
+}
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: 50px;
+}
+.footer-social-btn {
+  &-wrap {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  font-size: 30px;
+  color: #fff !important;
+}
+.footer-copyright {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0;
+}
+.footer-dev-copyright {
+  display: flex;
+  align-items: center;
+  &__text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  &__img {
+    margin-left: 5px;
+  }
+=======
+  width: 100%;
+>>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
+}
