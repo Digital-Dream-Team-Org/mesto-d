@@ -12,13 +12,6 @@ const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
 // cleanCss - CSS minimization
 const cleanCSS = require("gulp-clean-css");
-<<<<<<< HEAD
-=======
-// Imagemin - image minimization and optimization
-const imagemin = require("gulp-imagemin");
-// Pngquant - imagemin utility library for png optimization
-const pngquant = require("imagemin-pngquant");
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
 // inject - injecting html templates in a html files
 const inject = require("gulp-inject");
 // Rename - rename files
@@ -29,15 +22,12 @@ const sourcemaps = require("gulp-sourcemaps");
 const browserSync = require("browser-sync");
 // Del - delete files and folders
 const del = require("del");
-<<<<<<< HEAD
 // Plumber - improve error handling during pipelines
 const plumber = require("gulp-plumber");
 // Imagemin - image compression
 const imagemin = require("gulp-imagemin");
 // imagemin-pngquant - png compression plugin
 const imageminPngquant = require("imagemin-pngquant");
-=======
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
 
 // Yargs - get terminal arguments
 const argv = require("yargs").argv;
@@ -77,15 +67,8 @@ const paths = {
     assetsDest: "dist/assets",
   },
   libraries: {
-<<<<<<< HEAD
     src: "src/libs/**",
     dest: "dist/libs",
-=======
-    libraryCssSrc: "src/library/**/*.css",
-    libraryCssDest: "dist/css",
-    libraryJsSrc: "src/library/**/*.js",
-    libraryJsDest: "dist/js",
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
   },
 };
 
@@ -102,10 +85,7 @@ function buildStyles() {
   return (
     gulp
       .src(paths.styles.src)
-<<<<<<< HEAD
       .pipe(plumber())
-=======
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
       .pipe(sourcemaps.init())
       .pipe(
         sass({
@@ -116,10 +96,6 @@ function buildStyles() {
       )
       .on("error", function (err) {
         console.log(err.toString());
-<<<<<<< HEAD
-=======
-
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
         this.emit("end");
       })
       .pipe(
@@ -146,10 +122,7 @@ function buildHtml() {
   // Returns stream
   return gulp
     .src(paths.html.contentSrc)
-<<<<<<< HEAD
     .pipe(plumber())
-=======
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
     .pipe(
       inject(gulp.src([paths.html.includeHeaderSrc]), {
         starttag: "<!-- inject:header:{{ext}} -->",
@@ -176,33 +149,23 @@ function tplScripts() {
   // Returns stream
   return gulp
     .src(paths.scripts.tpl)
-<<<<<<< HEAD
     .pipe(plumber())
     .pipe(concat("components.min.js")) // Take all of components and compile into components.min.js
     .pipe(uglify()) // Minify this file
     .pipe(gulp.dest(paths.scripts.dest)); // Move it to dist/js
-=======
-    .pipe(concat("components.min.js")) // Собираем их в кучу в новом файле components.min.js
-    .pipe(uglify()) // Сжимаем JS файл
-    .pipe(gulp.dest(paths.scripts.dest)); // Выгружаем в папку app/js
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
 }
 // Build, minimize, and move to dist custom scripts
 function customScripts() {
   // Returns stream
   return gulp
     .src(paths.scripts.src)
-<<<<<<< HEAD
     .pipe(plumber())
-=======
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
     .pipe(sourcemaps.init())
     .pipe(
       babel({
         presets: ["@babel/env"],
       }),
     )
-<<<<<<< HEAD
     .pipe(uglify()) // Minify this file
     .pipe(
       rename({
@@ -211,16 +174,6 @@ function customScripts() {
     )
     .pipe(sourcemaps.write("./")) // path related to target destination
     .pipe(gulp.dest(paths.scripts.dest)); // Move it to dist/js
-=======
-    .pipe(uglify()) // Сжимаем JS файл
-    .pipe(
-      rename({
-        suffix: ".min",
-      }),
-    )
-    .pipe(sourcemaps.write("./")) // path related to target destination
-    .pipe(gulp.dest(paths.scripts.dest)); // Выгружаем в папку app/js
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
 }
 const buildScripts = gulp.parallel(customScripts, tplScripts);
 
@@ -233,7 +186,6 @@ function buildFonts() {
 
 // Optimize and move images from working to dist directory
 function buildImagesProd() {
-<<<<<<< HEAD
   return (
     gulp
       .src(paths.assets.imgSrc) // Take all iamages
@@ -253,56 +205,20 @@ function buildImagesProd() {
 }
 function buildImagesDev() {
   // Move images without optimization to save rebuild time on dev
-=======
-  return gulp
-    .src(paths.assets.imgSrc) // Берем все изображения из app
-    .pipe(
-      imagemin({
-        // Сжимаем их с наилучшими настройками с учетом кеширования
-        interlaced: true,
-        progressive: true,
-        svgoPlugins: [{ removeViewBox: false }],
-        use: [pngquant()],
-      }),
-    )
-    .pipe(gulp.dest(paths.assets.assetsDest));
-}
-function buildImagesDev() {
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
   return gulp.src(paths.assets.imgSrc).pipe(gulp.dest(paths.assets.assetsDest));
 }
 
 function buildAssets() {
-<<<<<<< HEAD
   // Move other assets / non-images
-=======
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
   return gulp
     .src(paths.assets.assetsSrc)
     .pipe(gulp.dest(paths.assets.assetsDest));
 }
 
-<<<<<<< HEAD
 // Export all libraries
 function buildLibraries() {
   // Returns stream
   return gulp.src(paths.libraries.src).pipe(gulp.dest(paths.libraries.dest)); // Move it to dist/libs
-=======
-// Export css library
-function buildLibrariesCss() {
-  // Returns stream
-  return gulp
-    .src(paths.libraries.libraryCssSrc)
-    .pipe(gulp.dest(paths.libraries.libraryCssDest)); // Выгружаем в папку app/js
-}
-
-// Export js library
-function buildLibrariesJs() {
-  // Returns stream
-  return gulp
-    .src(paths.libraries.libraryJsSrc)
-    .pipe(gulp.dest(paths.libraries.libraryJsDest)); // Выгружаем в папку app/js
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
 }
 
 const buildAssetsProd = gulp.parallel(buildFonts, buildImagesProd, buildAssets);
@@ -311,22 +227,13 @@ const buildAssetsDev = gulp.parallel(buildFonts, buildImagesDev, buildAssets);
 // Config and start browser sync
 function bSync() {
   browserSync({
-<<<<<<< HEAD
     // Run browser Sync
-=======
-    // Выполняем browser Sync
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
     server: {
       baseDir: "dist",
     },
     port: config.port,
-<<<<<<< HEAD
     notify: false, // Notifications off
     open: false, // Auto open off
-=======
-    notify: false, // Отключаем уведомления
-    open: false, // Авто открытие в браузере
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
   });
 }
 
@@ -349,13 +256,10 @@ function watchFiles() {
       gulp.series(buildHtml),
     )
     .on("change", browserSync.reload);
-<<<<<<< HEAD
   // Reload on libs change
   gulp
     .watch(paths.libraries.src, gulp.series(buildLibraries))
     .on("change", browserSync.reload);
-=======
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
   // Reload on assets change
   gulp
     .watch(paths.assets.assetsSrc, gulp.series(buildAssetsDev))
@@ -376,12 +280,7 @@ const build = gulp.series(
   buildHtml,
   buildScripts,
   buildAssetsProd,
-<<<<<<< HEAD
   buildLibraries,
-=======
-  buildLibrariesCss,
-  buildLibrariesJs,
->>>>>>> dec5e9049b0c7ef9468cd79147d873bc7d5d0e0b
 );
 exports.build = build;
 
