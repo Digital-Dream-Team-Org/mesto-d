@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/components.min.css" />
+    <link rel="stylesheet" href="libs/swiper/swiper.min.css" />
     <link rel="stylesheet" href="css/main.min.css" />
     <link rel="stylesheet" href="css/media.min.css" />
   </head>
@@ -79,7 +80,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <h2 class="section__title">
+              <h2 class="section__title mtp-20 mtp-lg-20">
                 Театральный репертуар прямо у вас в кармане
               </h2>
               <div class="mbp-40 mbp-lg-40">
@@ -107,29 +108,246 @@
                 </a>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="play-card-wrap">
-                <div class="play-card">
-                  <div class="play-card__image-wrap">
-                    <img
-                      src="assets/card-1.png"
-                      alt="play"
-                      class="play-card__image"
-                    />
+            <div class="plays-swiper-wrap">
+              <div class="plays-swiper swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <div class="news-card__image-wrap">
+                        <img
+                          src="assets/news(1).png"
+                          alt="news"
+                          class="news-card__image"
+                        />
+                      </div>
+                      <div class="news-card__body">
+                        <div class="news-card__title">
+                          Участие в международной выставке “Экватек-2020”
+                        </div>
+                        <div class="news-card__content">
+                          С 8 по 10 сентября в Москве в “Крокус Экспо” прошла 14
+                          международная выставка “Экватек-2020”. Компания
+                          “Татсорб” приняла участие в выставке.
+                        </div>
+                        <div class="news-card__separator-wrap">
+                          <img
+                            src="assets/separator.png"
+                            alt="separator"
+                            class="news-card__separator"
+                          />
+                        </div>
+                        <div>
+                          <a class="dd-button" href="#">Подробнее</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="play-card__body">
-                    <div class="play-card__body-header">Meta</div>
-                    <div class="play-card__body-title">Title</div>
-                    <div class="play-card__body-route">from to route</div>
-                    <div class="play-card__body-controls">
-                      <a class="play-card__btn" href="#">
-                        Подробнее о спектакле
-                      </a>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <div class="news-card__image-wrap">
+                        <img
+                          src="assets/news(2).png"
+                          alt="news"
+                          class="news-card__image"
+                        />
+                      </div>
+                      <div class="news-card__body">
+                        <div class="news-card__title">
+                          “Татсорб” отгружает уголь на социально-значимые
+                          объекты республики Татарстан
+                        </div>
+                        <div class="news-card__content">
+                          Компания “Татсорб” своевременно поставляет уголь на
+                          социально- значимые объекты. С начала года отгружено
+                          более 40 тонн угля.
+                        </div>
+                        <div class="news-card__separator-wrap">
+                          <img
+                            src="assets/separator.png"
+                            alt="separator"
+                            class="news-card__separator"
+                          />
+                        </div>
+                        <div>
+                          <a class="dd-button" href="#">Подробнее</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <div class="news-card__image-wrap">
+                        <img
+                          src="assets/news(3).png"
+                          alt="news"
+                          class="news-card__image"
+                        />
+                      </div>
+                      <div class="news-card__body">
+                        <div class="news-card__title">
+                          “Татсорб” признан надежным поставщиком 2019 года
+                        </div>
+                        <div class="news-card__content">
+                          Компания “Татсорб” была признана лучшим поставщиком
+                          2019 года в номинации “Производство активированного
+                          угля”. Завод получил почетный диплом.
+                        </div>
+                        <div class="news-card__separator-wrap">
+                          <img
+                            src="assets/separator.png"
+                            alt="separator"
+                            class="news-card__separator"
+                          />
+                        </div>
+                        <div>
+                          <a class="dd-button" href="#">Подробнее</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <div class="news-card__image-wrap">
+                        <img
+                          src="assets/news(1).png"
+                          alt="news"
+                          class="news-card__image"
+                        />
+                      </div>
+                      <div class="news-card__body">
+                        <div class="news-card__title">
+                          Участие в международной выставке “Экватек-2020”
+                        </div>
+                        <div class="news-card__content">
+                          С 8 по 10 сентября в Москве в “Крокус Экспо” прошла 14
+                          международная выставка “Экватек-2020”. Компания
+                          “Татсорб” приняла участие в выставке.
+                        </div>
+                        <div class="news-card__separator-wrap">
+                          <img
+                            src="assets/separator.png"
+                            alt="separator"
+                            class="news-card__separator"
+                          />
+                        </div>
+                        <div>
+                          <a class="dd-button" href="#">Подробнее</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <div class="news-card__image-wrap">
+                        <img
+                          src="assets/news(1).png"
+                          alt="news"
+                          class="news-card__image"
+                        />
+                      </div>
+                      <div class="news-card__body">
+                        <div class="news-card__title">
+                          Участие в международной выставке “Экватек-2020”
+                        </div>
+                        <div class="news-card__content">
+                          С 8 по 10 сентября в Москве в “Крокус Экспо” прошла 14
+                          международная выставка “Экватек-2020”. Компания
+                          “Татсорб” приняла участие в выставке.
+                        </div>
+                        <div class="news-card__separator-wrap">
+                          <img
+                            src="assets/separator.png"
+                            alt="separator"
+                            class="news-card__separator"
+                          />
+                        </div>
+                        <div>
+                          <a class="dd-button" href="#">Подробнее</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- Add Arrows -->
+              <!-- <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div> -->
             </div>
+            <!-- <div class="col-md-8">
+              <div class="play-carousell">
+                <div class="play-card-wrap">
+                  <div class="play-card">
+                    <div class="play-card__image-wrap">
+                      <img
+                        src="assets/card-1.png"
+                        alt="play"
+                        class="play-card__image"
+                      />
+                      <div class="play-card__image-labels">
+                        <div class="play-card__image-label">16+</div>
+                        <div class="play-card__image-label">Бесплатно</div>
+                        <div
+                          class="play-card__image-label play-card__image-label--hot"
+                        >
+                          Хит!
+                        </div>
+                      </div>
+                    </div>
+                    <div class="play-card__body">
+                      <div class="play-card__body-header">
+                        <div class="play-card__body-meta-container">
+                          <div class="play-card__body-meta">
+                            <i class="icon-timer"></i>
+                            <span>72 минут</span>
+                          </div>
+                          <div class="play-card__body-meta">
+                            <i class="icon-insert"></i>
+                            <span>71 mb</span>
+                          </div>
+                        </div>
+                        <div class="play-card__body-director">
+                          <span class="play-card__body-director-position">
+                            Режисер:
+                          </span>
+                          <span class="play-card__body-director-name">
+                            Нурбек Эген
+                          </span>
+                        </div>
+                      </div>
+                      <div class="play-card__body-title">
+                        Природа всегда знает как лучше
+                      </div>
+                      <div class="play-card__body-route">
+                        <div class="play-card__body-route-from">
+                          <span class="play-card__body-route-title">от</span>
+                          <span
+                            class="play-card__body-route-name text-truncate"
+                          >
+                            Карагачёвая роща
+                          </span>
+                        </div>
+                        <div class="play-card__body-route-separator">
+                          <i class="icon-arrow-right"></i>
+                        </div>
+                        <div class="play-card__body-route-to">
+                          <span class="play-card__body-route-title">до</span>
+                          <span
+                            class="play-card__body-route-name text-truncate"
+                          >
+                            Конно-спортивная улица
+                          </span>
+                        </div>
+                      </div>
+                      <div class="play-card__body-controls">
+                        <a class="play-card__btn" href="#">
+                          Подробнее о спектакле
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -284,7 +502,7 @@
         </div>
       </section>
       <section class="section section-footer">
-        <div class="container">
+        <div class="container position-relative">
           <div class="row">
             <div class="col-md-4">
               <p class="section__small-title">Как с нами связаться</p>
@@ -340,7 +558,20 @@
                 </a>
               </div>
             </div>
-            <div class="col-md-4">footer phones</div>
+            <div class="footer-phones-wrap">
+              <div class="footer-phones">
+                <img
+                  src="assets/footer-phone-1.png"
+                  alt="phone"
+                  class="footer-phones-item-1"
+                />
+                <img
+                  src="assets/footer-phone-2.png"
+                  alt="phone"
+                  class="footer-phones-item-2"
+                />
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-4">
@@ -388,6 +619,7 @@
       />
     </div>
     <script src="js/components.min.js"></script>
+    <script src="libs/swiper/swiper.min.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>

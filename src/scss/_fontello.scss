@@ -1,14 +1,14 @@
 @font-face {
   font-family: "fontello";
-  src: url("../fonts/fontello-24602411/font/fontello.eot?33932943");
-  src: url("../fonts/fontello-24602411/font/fontello.eot?33932943#iefix")
+  src: url("../fonts/fontello-0c773bfd/font/fontello.eot?33932943");
+  src: url("../fonts/fontello-0c773bfd/font/fontello.eot?33932943#iefix")
       format("embedded-opentype"),
-    url("../fonts/fontello-24602411/font/fontello.woff2?33932943")
+    url("../fonts/fontello-0c773bfd/font/fontello.woff2?33932943")
       format("woff2"),
-    url("../fonts/fontello-24602411/font/fontello.woff?33932943") format("woff"),
-    url("../fonts/fontello-24602411/font/fontello.ttf?33932943")
+    url("../fonts/fontello-0c773bfd/font/fontello.woff?33932943") format("woff"),
+    url("../fonts/fontello-0c773bfd/font/fontello.ttf?33932943")
       format("truetype"),
-    url("../fonts/fontello-24602411/font/fontello.svg?33932943#fontello")
+    url("../fonts/fontello-0c773bfd/font/fontello.svg?33932943#fontello")
       format("svg");
   font-weight: normal;
   font-style: normal;
@@ -72,6 +72,12 @@
 .icon-lock:before {
   content: "\e804";
 } /* '' */
+.icon-arrow-right:before {
+  content: "\e803";
+} /* '' */
+.icon-insert:before {
+  content: "\e805";
+} /* '' */
 .icon-wu:before {
   content: "\e807";
 } /* '' */
