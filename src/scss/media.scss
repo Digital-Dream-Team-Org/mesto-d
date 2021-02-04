@@ -26,6 +26,30 @@
 @media (max-width: 992px) {
 }
 @media (max-width: 768px) {
+  .overlay-cdk {
+    &__content-vacancy {
+      &-wrap {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 80vh;
+        height: 100%;
+      }
+    }
+    &__content-contact {
+      &-wrap {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 80vh;
+        height: 100%;
+      }
+
+      &-team {
+        &-bubble {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }
 @media (max-width: 576px) {
 }
