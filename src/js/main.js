@@ -66,6 +66,11 @@
     }
 
     // Popups
+    $(".open-play-popup").on("click", function (e) {
+      e.preventDefault();
+      $("body").addClass("overflow-hidden");
+      $("#playPopup").addClass("active");
+    });
     $(".open-contact-popup").on("click", function (e) {
       e.preventDefault();
       $("body").addClass("overflow-hidden");
@@ -112,6 +117,7 @@
         return;
       }
       if (!musicLoaded) {
+        $(this).addClass("active");
         musicLoading = true;
         return sound.load();
       }
@@ -130,37 +136,59 @@
 
     var progressInterval = null;
     sound.on("play", function () {
+      $("#playPreview").addClass("active");
+      setTimeout(() => {
+        $("#previewPlayerProgress").css("transition", "2000ms");
+      }, 200);
+
       if (progressInterval !== null) {
         clearInterval(progressInterval);
         progressInterval = null;
       }
       progressInterval = setInterval(() => {
         if (sound.playing()) {
-          let duration = Math.round(sound.duration());
-          let position = Math.round(sound.seek());
+          let duration = Math.floor(sound.duration());
+          let position = Math.floor(sound.seek());
           let percent = Math.round((position / duration) * 100);
 
-          console.log({
-            position,
-            duration,
-            percent,
-          });
+          let durationMin = String(Math.floor(duration / 60)).padStart(2, "0");
+          let durationSec = String(duration - durationMin * 60).padStart(
+            2,
+            "0",
+          );
+
+          let positionMin = String(Math.floor(position / 60)).padStart(2, "0");
+          let positionSec = String(position - positionMin * 60).padStart(
+            2,
+            "0",
+          );
+
+          $("#previewPlayerPosition").html(`${positionMin}:${positionSec}`);
+          $("#previewPlayerDuration").html(`${durationMin}:${durationSec}`);
+
+          $("#previewPlayerProgress").css("width", `${percent}%`);
         }
-      }, 1000);
+      }, 500);
     });
     sound.on("stop", function () {
+      $("#playPreview").removeClass("active");
+      $("#previewPlayerProgress").css("transition", "");
       if (progressInterval !== null) {
         clearInterval(progressInterval);
         progressInterval = null;
       }
     });
     sound.on("end", function () {
+      $("#playPreview").removeClass("active");
+      $("#previewPlayerProgress").css("transition", "");
       if (progressInterval !== null) {
         clearInterval(progressInterval);
         progressInterval = null;
       }
     });
     sound.on("pause", function () {
+      $("#playPreview").removeClass("active");
+      $("#previewPlayerProgress").css("transition", "");
       if (progressInterval !== null) {
         clearInterval(progressInterval);
         progressInterval = null;

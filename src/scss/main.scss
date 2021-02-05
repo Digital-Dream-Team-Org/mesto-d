@@ -724,6 +724,132 @@ p {
       color: rgba(0, 0, 0, 0.7);
     }
   }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+    margin-bottom: 25px;
+  }
+  &__control {
+    &-spacer {
+      width: 33.3%;
+      text-align: center;
+    }
+    &-play {
+      &-wrap {
+        width: 33.3%;
+        text-align: center;
+        margin-top: -15px;
+      }
+      background: #1f41e1;
+      box-shadow: 0px 5px 20px rgba(31, 65, 225, 0.5);
+      border-radius: 50px;
+      border: none;
+      color: #fff;
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+
+      .icon-play {
+        font-size: 25px;
+      }
+      .icon-pause {
+        font-size: 25px;
+        margin-left: -4px;
+      }
+
+      .icon-pause {
+        display: none;
+      }
+      &.active {
+        .icon-play {
+          display: none;
+        }
+        .icon-pause {
+          display: inline-block;
+        }
+      }
+    }
+    &-volume {
+      &-wrap {
+        width: 33.3%;
+        text-align: center;
+      }
+      width: 100%;
+    }
+  }
+  &__title {
+    &-wrap {
+      padding: 0 15px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    &-label {
+      background: #f9ae01;
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 130%;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000000;
+  }
+  &__progress-bar {
+    &-wrap {
+      padding: 0 15px;
+      margin-bottom: 5px;
+      margin-left: -3px;
+      margin-right: -3px;
+    }
+    background-image: url("../assets/media-progress.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35px;
+    width: 100%;
+    position: relative;
+    &-overlay {
+      height: 100%;
+      width: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #6882ff;
+      mix-blend-mode: color-burn;
+      transition: 200ms;
+    }
+  }
+  &__timer {
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 15px;
+    }
+    &-position,
+    &-duration {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 9px;
+      line-height: 11px;
+      color: rgba(#000000, 0.6);
+    }
+  }
 }
 
 .team-swiper {

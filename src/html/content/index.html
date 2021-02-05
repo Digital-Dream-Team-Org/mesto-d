@@ -38,7 +38,8 @@
               <div class="section-hero__composit-title-2">место д...</div>
               <div class="section-hero__composit-title-3">в телефоне</div>
               <div>
-                <button class="open-contact-popup">Content popup test</button>
+                <button class="open-contact-popup">Contact popup WIP</button>
+                <button class="open-play-popup">Play popup WIP</button>
               </div>
             </div>
           </div>
@@ -681,15 +682,16 @@
                   <div class="preview-player__panel-layer-2"></div>
                   <div class="preview-player__panel-layer-1">
                     <div class="preview-player__controls">
-                      <div>
-                        <input
-                          id="previewPlayerVolume"
-                          type="range"
-                          value="5"
-                        />
-                      </div>
-                      <div>
-                        <button id="playPreview" type="button">Play</button>
+                      <div class="preview-player__control-spacer"></div>
+                      <div class="preview-player__control-play-wrap">
+                        <button
+                          id="playPreview"
+                          class="preview-player__control-play"
+                          type="button"
+                        >
+                          <i class="icon-play"></i>
+                          <i class="icon-pause"></i>
+                        </button>
                         <input
                           id="previewPlayerSrc"
                           type="hidden"
@@ -697,26 +699,50 @@
                           value="assets/sample.mp3"
                         />
                       </div>
+                      <div class="preview-player__control-volume-wrap">
+                        <input
+                          id="previewPlayerVolume"
+                          class="preview-player__control-volume"
+                          type="range"
+                          value="5"
+                        />
+                      </div>
                     </div>
-                    <div class="preview-player__progress-bar">progress</div>
+                    <div class="preview-player__title-wrap">
+                      <span class="preview-player__title-label">1</span>
+                      <span class="preview-player__title">
+                        Сквер Таттыбюбю Турсунбаевой
+                      </span>
+                    </div>
+                    <div class="preview-player__progress-bar-wrap">
+                      <div class="preview-player__progress-bar">
+                        <div
+                          id="previewPlayerProgress"
+                          class="preview-player__progress-bar-overlay"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="preview-player__timer-wrap">
+                      <div
+                        id="previewPlayerPosition"
+                        class="preview-player__timer-position"
+                      >
+                        00:00
+                      </div>
+                      <div
+                        id="previewPlayerDuration"
+                        class="preview-player__timer-duration"
+                      >
+                        00:00
+                      </div>
+                    </div>
                     <div class="preview-player__content">
                       <div class="preview-player__content-header">О чем?</div>
                       <div class="preview-player__content-body">
                         Добро пожаловать в Бишкек! Мы с удовольствием познакомим
                         вас с достопримечательностями нашего города,
                         расположенными в его центральной части. Экскурсия
-                        начинается от курантов и проходит через три городские
-                        площади, старейший парк, вдоль театров, кинотеатров,
-                        памятников и монументов — в общей сложности гид покажет
-                        вам более 30-ти достопримечательностей. За те несколько
-                        часов, что длится экскурсия, вы узнаете о жизни Бишкека
-                        в периоды Кокандского ханства, Российской Империи, СССР
-                        и, наконец, Независимого Кыргызстана. Программа
-                        экскурсии включает обзорное посещение двух музеев —
-                        Музея Изобразительных Искусств и Дома-музея Михаила
-                        Фрунзе. После того, как в Историческом музее будет
-                        закончена реставрация, мы с радостью включим его в наш
-                        маршрут!
+                        начинается ...
                       </div>
                     </div>
                   </div>
@@ -1194,6 +1220,15 @@
               </div>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+    <div id="playPopup" class="overlay-cdk">
+      <div class="overlay-cdk__content-play-wrap">
+        <div class="overlay-cdk__content-play">
+          <div class="overlay-cdk__content-play-title">
+            Оставьте заявку для расчета стоимости и сроков
+          </div>
         </div>
       </div>
     </div>
