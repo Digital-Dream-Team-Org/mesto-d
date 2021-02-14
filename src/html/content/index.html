@@ -14,50 +14,176 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/components.min.css" />
+    <link rel="stylesheet" href="libs/anijs/anijs.min.css" />
     <link rel="stylesheet" href="libs/swiper/swiper.min.css" />
     <link rel="stylesheet" href="css/main.min.css" />
     <link rel="stylesheet" href="css/media.min.css" />
   </head>
-  <body>
+  <body class="no-js">
+    <script>
+      document.body.classList.remove("no-js");
+    </script>
     <!-- inject:header:html -->
     <!-- contents of html partials will be injected here -->
     <!-- endinject -->
+    <noindex>
+      <div class="preloader-section">
+        <div class="preloader-section__content-wrap">
+          <div class="preloader-section__content">
+            <div class="preloader-section__logo-wrap">
+              <img
+                src="assets/preloader-logo.png"
+                alt="preloader"
+                class="preloader-section__logo"
+              />
+            </div>
+            <div class="preloader-section__bar-wrap">
+              <div class="preloader-section__bar">
+                <div class="preloader-section__bar-overlay"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </noindex>
+    <div
+      class="pipe-container-wrap d-none opacity-0"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      "
+    >
+      <div class="container p-0">
+        <svg
+          id="pipe"
+          width="1126"
+          height="2202"
+          viewBox="0 0 1126 2202"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1124 5C686.071 102.384 1068.93 362.426 874.255 604.586C702.587 818.132 400.758 679 450.34 1042.59C474.532 1220 325.5 1314.5 242 1368.5C188.333 1411.5 73.4315 1497.5 21.5001 1656.5C-18.9999 1780.5 2.00006 2052 242 2197.5"
+            stroke="#F08D00"
+            stroke-width="10"
+          />
+        </svg>
+        <svg
+          id="pipeMobile"
+          width="375"
+          height="2202"
+          viewBox="0 0 375 2202"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M596 5C347.462 102.406 564.744 362.508 454.262 604.723C356.835 818.317 185.538 679.154 213.677 1042.83C227.407 1220.28 142.827 1314.8 95.4382 1368.81C64.9808 1411.82 -0.229545 1497.84 -29.7022 1656.88C-52.6872 1780.9 -40.7691 2052.47 95.4382 2198"
+            stroke="#F08D00"
+            stroke-width="10"
+          />
+        </svg>
+      </div>
+    </div>
+    <header class="main-header d-none">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="assets/full-logo.svg" alt="logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainHeaderNavbar">
+            <ul class="navbar-nav align-items-lg-center ml-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#team">Команда</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacts">Контакты</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link open-contact-popup"
+                  href="javascript:void(0)"
+                >
+                  Сотрудничество
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link store-link store-link-first" href="#">
+                  <img src="assets/app-store-btn.svg" alt="App store button" />
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link store-link" href="#">
+                  <img
+                    src="assets/google-play-btn.svg"
+                    alt="Google play button"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
     <main class="main-content">
+      <div class="floating-circles">
+        <img
+          src="assets/background-top-1.png"
+          alt="circle"
+          class="floating-circle-1"
+        />
+        <img
+          src="assets/background-top-2.png"
+          alt="circle"
+          class="floating-circle-2"
+        />
+        <img
+          src="assets/background-top-3.png"
+          alt="circle"
+          class="floating-circle-3"
+        />
+      </div>
       <section class="section section-hero">
         <div class="container position-relative">
           <div class="section-hero__composit-title-container">
             <div class="section-hero__composit-title-img-wrap">
               <img
                 class="section-hero__composit-title-img"
-                src="../assets/logo.png"
+                src="assets/logo.png"
                 alt="logo"
               />
             </div>
             <div class="section-hero__composit-title">
               <div class="section-hero__composit-title-1">театр</div>
-              <div class="section-hero__composit-title-2">место д...</div>
-              <div class="section-hero__composit-title-3">в телефоне</div>
-              <div>
-                <button class="open-contact-popup">Contact popup WIP</button>
-                <button class="open-play-popup">Play popup WIP</button>
+              <div class="section-hero__composit-title-2 delay-1">
+                место д...
+              </div>
+              <div class="section-hero__composit-title-3 delay-2">
+                в телефоне
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-5 offset-md-3">
-              <h2 class="section-hero__subtitle">
+          <div class="row section-hero__content">
+            <div class="col-md-7 col-lg-5 offset-md-1 offset-lg-3">
+              <h2 class="section-hero__subtitle delay-3">
                 Слушайте спектакли прямо в своем телефоне
               </h2>
               <div class="d-flex flex-wrap">
-                <a href="#" class="store-btn mrp-10 mrp-lg-10">
-                  <img
-                    src="../assets/app-store-btn.png"
-                    alt="App store button"
-                  />
+                <a href="#" class="store-btn mrp-10 mrp-lg-10 delay-3">
+                  <img src="assets/app-store-btn.svg" alt="App store button" />
                 </a>
-                <a href="#" class="store-btn">
+                <a href="#" class="store-btn delay-4">
                   <img
-                    src="../assets/google-play-btn.png"
+                    src="assets/google-play-btn.svg"
                     alt="Google play button"
                   />
                 </a>
@@ -73,41 +199,51 @@
                 <img
                   src="assets/hero-p2.png"
                   alt="phone 2"
-                  class="section-hero__phones-item-2"
+                  class="section-hero__phones-item-2 delay-2"
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section section-shows">
+      <section class="section section-shows position-relative">
         <div class="container">
           <div class="row">
-            <div class="col-md-4 plays-text-wrap">
-              <div class="plays-text">
-                <h2 class="section__title mtp-20 mtp-lg-20">
+            <div class="col-md-12 col-lg-4 plays-text-wrap">
+              <div class="plays-text rellax">
+                <h2
+                  class="section__title mtp-20 mtp-lg-20"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
                   Театральный репертуар прямо у вас в кармане
                 </h2>
                 <div class="mbp-40 mbp-lg-40">
-                  <p>
-                    Наши актеры и режисеры постоянно обновляет и дополняет
+                  <p
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                  >
+                    Наши актеры и Режиссеры постоянно обновляет и дополняет
                     репертуар нашего театра.
                   </p>
-                  <p>
+                  <p
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                  >
                     В нашем приложении вы сможете регулярно наслаждаться новыми
                     спектаклями и приключениями.
                   </p>
                 </div>
-                <div class="d-flex flex-wrap">
+                <div
+                  class="flex-wrap d-none d-md-flex"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
                   <a href="#" class="store-btn mrp-10">
                     <img
-                      src="../assets/app-store-btn.png"
+                      src="assets/app-store-btn.svg"
                       alt="App store button"
                     />
                   </a>
                   <a href="#" class="store-btn">
                     <img
-                      src="../assets/google-play-btn.png"
+                      src="assets/google-play-btn.svg"
                       alt="Google play button"
                     />
                   </a>
@@ -115,552 +251,95 @@
               </div>
             </div>
             <div class="plays-swiper-wrap">
-              <div class="plays-swiper swiper-container">
+              <div
+                class="plays-swiper swiper-container"
+                data-anijs="if: scroll, on: window, do: fadeInRight animated, before: scrollReveal "
+              >
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">Список недоступен</div>
+                  <!-- Play slide structure START
                   <div class="swiper-slide">
                     <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
+                      <a class="open-play-popup" data-id="1">
+                        <div class="play-card">
+                          <div class="play-card__image-wrap">
+                            <img
+                              src="assets/card-1.png"
+                              alt="play"
+                              class="play-card__image"
+                            />
+                            <div class="play-card__image-labels">
+                              <div class="play-card__image-label">Age</div>
+                              <div class="play-card__image-label">Price</div>
+                              <div
+                                class="play-card__image-label play-card__image-label--hot"
+                              >
+                                Хит!
+                              </div>
+                            </div>
+                          </div>
+                          <div class="play-card__body">
+                            <div class="play-card__body-header">
+                              <div class="play-card__body-meta-container">
+                                <div class="play-card__body-meta">
+                                  <i class="icon-timer"></i>
+                                  <span>MINUTE минут</span>
+                                </div>
+                                <div class="play-card__body-meta">
+                                  <i class="icon-insert"></i>
+                                  <span>SIZE mb</span>
+                                </div>
+                              </div>
+                              <div class="play-card__body-director">
+                                <span class="play-card__body-director-position">
+                                  Режиссер:
+                                </span>
+                                <span class="play-card__body-director-name">
+                                  DIRECTOR_NAME
+                                </span>
+                              </div>
+                            </div>
+                            <div class="play-card__body-title">
+                              TITLE
+                            </div>
+                            <div class="play-card__body-route">
+                              <div class="play-card__body-route-from">
+                                <span class="play-card__body-route-title">
+                                  от
+                                </span>
+                                <span
+                                  class="play-card__body-route-name text-truncate"
+                                >
+                                  ROUTE_FROM
+                                </span>
+                              </div>
+                              <div class="play-card__body-route-separator">
+                                <i class="icon-arrow-right"></i>
+                              </div>
+                              <div class="play-card__body-route-to">
+                                <span class="play-card__body-route-title">
+                                  до
+                                </span>
+                                <span
+                                  class="play-card__body-route-name text-truncate"
+                                >
+                                  ROUTE_TO
+                                </span>
+                              </div>
+                            </div>
+                            <div class="play-card__body-controls">
+                              <span class="play-card__btn">
+                                Подробнее о спектакле
+                              </span>
                             </div>
                           </div>
                         </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                      </a>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
-                            </div>
-                          </div>
-                        </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
-                            </div>
-                          </div>
-                        </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
-                            </div>
-                          </div>
-                        </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
-                            </div>
-                          </div>
-                        </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
-                            </div>
-                          </div>
-                        </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="play-card-wrap">
-                      <div class="play-card">
-                        <div class="play-card__image-wrap">
-                          <img
-                            src="assets/card-1.png"
-                            alt="play"
-                            class="play-card__image"
-                          />
-                          <div class="play-card__image-labels">
-                            <div class="play-card__image-label">16+</div>
-                            <div class="play-card__image-label">Бесплатно</div>
-                            <div
-                              class="play-card__image-label play-card__image-label--hot"
-                            >
-                              Хит!
-                            </div>
-                          </div>
-                        </div>
-                        <div class="play-card__body">
-                          <div class="play-card__body-header">
-                            <div class="play-card__body-meta-container">
-                              <div class="play-card__body-meta">
-                                <i class="icon-timer"></i>
-                                <span>72 минут</span>
-                              </div>
-                              <div class="play-card__body-meta">
-                                <i class="icon-insert"></i>
-                                <span>71 mb</span>
-                              </div>
-                            </div>
-                            <div class="play-card__body-director">
-                              <span class="play-card__body-director-position">
-                                Режисер:
-                              </span>
-                              <span class="play-card__body-director-name">
-                                Нурбек Эген
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-title">
-                            Природа всегда знает как лучше
-                          </div>
-                          <div class="play-card__body-route">
-                            <div class="play-card__body-route-from">
-                              <span class="play-card__body-route-title"
-                                >от</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Карагачёвая роща
-                              </span>
-                            </div>
-                            <div class="play-card__body-route-separator">
-                              <i class="icon-arrow-right"></i>
-                            </div>
-                            <div class="play-card__body-route-to">
-                              <span class="play-card__body-route-title"
-                                >до</span
-                              >
-                              <span
-                                class="play-card__body-route-name text-truncate"
-                              >
-                                Конно-спортивная улица
-                              </span>
-                            </div>
-                          </div>
-                          <div class="play-card__body-controls">
-                            <a class="play-card__btn" href="#">
-                              Подробнее о спектакле
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  Play slide structure END -->
                 </div>
               </div>
-              <!-- Add Arrows -->
-              <!-- <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div> -->
             </div>
           </div>
         </div>
@@ -668,132 +347,195 @@
       <section class="section section-player">
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6 col-lg-5 col-xl-4 order-2 order-md-1">
               <div class="preview-player-wrap">
-                <div class="preview-player__image-wrap">
-                  <img
-                    src="assets/player-phone.png"
-                    alt="player background"
-                    class="preview-player__image"
-                  />
-                </div>
-                <div class="preview-player__panel-wrap">
-                  <div class="preview-player__panel-layer-3"></div>
-                  <div class="preview-player__panel-layer-2"></div>
-                  <div class="preview-player__panel-layer-1">
-                    <div class="preview-player__controls">
-                      <div class="preview-player__control-spacer"></div>
-                      <div class="preview-player__control-play-wrap">
-                        <button
-                          id="playPreview"
-                          class="preview-player__control-play"
-                          type="button"
-                        >
-                          <i class="icon-play"></i>
-                          <i class="icon-pause"></i>
-                        </button>
-                        <input
-                          id="previewPlayerSrc"
-                          type="hidden"
-                          name="player-src"
-                          value="assets/sample.mp3"
-                        />
+                <div class="preview-player">
+                  <div
+                    class="preview-player__image-wrap"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                  >
+                    <img
+                      src="assets/player-phone.png"
+                      alt="player background"
+                      class="preview-player__image"
+                    />
+                  </div>
+                  <div class="preview-player__panel-wrap">
+                    <div class="preview-player__panel-layer-3"></div>
+                    <div class="preview-player__panel-layer-2"></div>
+                    <div
+                      class="preview-player__panel-layer-1"
+                      data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                    >
+                      <div class="preview-player__controls">
+                        <div class="preview-player__control-spacer"></div>
+                        <div class="preview-player__control-play-wrap">
+                          <button
+                            id="playPreview"
+                            class="preview-player__control-play"
+                            type="button"
+                          >
+                            <i class="icon-play"></i>
+                            <i class="icon-pause"></i>
+                          </button>
+                          <input
+                            id="previewPlayerSrc"
+                            type="hidden"
+                            name="player-src"
+                            value="assets/sample.mp3"
+                          />
+                        </div>
+                        <div class="preview-player__control-volume-wrap">
+                          <input
+                            id="previewPlayerVolume"
+                            class="preview-player__control-volume"
+                            type="range"
+                            value="5"
+                          />
+                        </div>
                       </div>
-                      <div class="preview-player__control-volume-wrap">
-                        <input
-                          id="previewPlayerVolume"
-                          class="preview-player__control-volume"
-                          type="range"
-                          value="5"
-                        />
+                      <div class="preview-player__title-wrap">
+                        <span class="preview-player__title-label">1</span>
+                        <span class="preview-player__title">
+                          Сквер Таттыбюбю Турсунбаевой
+                        </span>
                       </div>
-                    </div>
-                    <div class="preview-player__title-wrap">
-                      <span class="preview-player__title-label">1</span>
-                      <span class="preview-player__title">
-                        Сквер Таттыбюбю Турсунбаевой
-                      </span>
-                    </div>
-                    <div class="preview-player__progress-bar-wrap">
-                      <div class="preview-player__progress-bar">
+                      <div class="preview-player__progress-bar-wrap">
+                        <div class="preview-player__progress-bar">
+                          <div
+                            id="previewPlayerProgress"
+                            class="preview-player__progress-bar-overlay"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="preview-player__timer-wrap">
                         <div
-                          id="previewPlayerProgress"
-                          class="preview-player__progress-bar-overlay"
-                        ></div>
+                          id="previewPlayerPosition"
+                          class="preview-player__timer-position"
+                        >
+                          00:00
+                        </div>
+                        <div
+                          id="previewPlayerDuration"
+                          class="preview-player__timer-duration"
+                        >
+                          00:00
+                        </div>
                       </div>
-                    </div>
-                    <div class="preview-player__timer-wrap">
-                      <div
-                        id="previewPlayerPosition"
-                        class="preview-player__timer-position"
-                      >
-                        00:00
-                      </div>
-                      <div
-                        id="previewPlayerDuration"
-                        class="preview-player__timer-duration"
-                      >
-                        00:00
-                      </div>
-                    </div>
-                    <div class="preview-player__content">
-                      <div class="preview-player__content-header">О чем?</div>
-                      <div class="preview-player__content-body">
-                        Добро пожаловать в Бишкек! Мы с удовольствием познакомим
-                        вас с достопримечательностями нашего города,
-                        расположенными в его центральной части. Экскурсия
-                        начинается ...
+                      <div class="preview-player__content">
+                        <div class="preview-player__content-header">О чем?</div>
+                        <div class="preview-player__content-body">
+                          Добро пожаловать в Бишкек! Мы с удовольствием
+                          познакомим вас с достопримечательностями нашего
+                          города, расположенными в его центральной части.
+                          Экскурсия начинается ...
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <h2 class="section__title">
-                Увлекательные истории в декорациях города
-              </h2>
-              <p>
-                Мы расскажем вам увлекательные истории, в которых вы сможете
-                стать непосредственным участником дейстия, а декорациями станут
-                улицы нашего города.
-              </p>
-              <p>Это поможет по новому вглянуть на знакомые места.</p>
-              <div class="mtp-50 mtp-lg-50 mbp-10 mbp-lg-10">
-                <span class="tag-label">Обратите внимание!</span>
-                <span class="tag-hint">Рекомендации для слушателя</span>
+            <div class="col-md-6 order-1 order-md-2">
+              <div class="preview-content rellax">
+                <h2
+                  class="section__title"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  Увлекательные истории в декорациях города
+                </h2>
+                <p
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  Мы расскажем вам увлекательные истории, в которых вы сможете
+                  стать непосредственным участником дейстия, а декорациями
+                  станут улицы нашего города.
+                </p>
+                <p
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  Это поможет по новому вглянуть на знакомые места.
+                </p>
+                <div class="mtp-50 mtp-lg-50 d-none d-md-block">
+                  <div
+                    class="icon-elements-text mbp-10 mbp-lg-10"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                  >
+                    <span class="tag-label">Обратите внимание!</span>
+                    <span class="tag-hint">Рекомендации для слушателя</span>
+                  </div>
+                  <div
+                    class="icon-elements"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                  >
+                    <div class="icon-element">
+                      <div class="icon-element__i-wrap">
+                        <i class="icon-element__i icon-headset"></i>
+                      </div>
+                      <div class="icon-element__text">Подключите наушники</div>
+                    </div>
+                    <div class="icon-element">
+                      <div class="icon-element__i-wrap">
+                        <i class="icon-element__i icon-connect"></i>
+                      </div>
+                      <div class="icon-element__text">
+                        Подключитесь к интернету
+                      </div>
+                    </div>
+                    <div class="icon-element">
+                      <div class="icon-element__i-wrap">
+                        <i class="icon-element__i icon-timer"></i>
+                      </div>
+                      <div class="icon-element__text">Выделите 35 минут</div>
+                    </div>
+                    <div class="icon-element">
+                      <div class="icon-element__i-wrap">
+                        <i class="icon-element__i icon-lock"></i>
+                      </div>
+                      <div class="icon-element__text">
+                        Включите «не беспокоить»
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="icon-elements">
-                <div class="icon-element">
-                  <div class="icon-element__i-wrap">
-                    <i class="icon-element__i icon-headset"></i>
-                  </div>
-                  <div class="icon-element__text">Подключите наушники</div>
+            </div>
+          </div>
+          <div class="mtp-100 d-block d-md-none">
+            <div class="mbp-10 mbp-lg-10">
+              <span class="tag-label">Обратите внимание!</span>
+              <span class="tag-hint">Рекомендации для слушателя</span>
+            </div>
+            <div class="icon-elements">
+              <div class="icon-element">
+                <div class="icon-element__i-wrap">
+                  <i class="icon-element__i icon-headset"></i>
                 </div>
-                <div class="icon-element">
-                  <div class="icon-element__i-wrap">
-                    <i class="icon-element__i icon-connect"></i>
-                  </div>
-                  <div class="icon-element__text">Подключитесь к интернету</div>
+                <div class="icon-element__text">Подключите наушники</div>
+              </div>
+              <div class="icon-element">
+                <div class="icon-element__i-wrap">
+                  <i class="icon-element__i icon-connect"></i>
                 </div>
-                <div class="icon-element">
-                  <div class="icon-element__i-wrap">
-                    <i class="icon-element__i icon-timer"></i>
-                  </div>
-                  <div class="icon-element__text">Выделите 35 минут</div>
+                <div class="icon-element__text">Подключитесь к интернету</div>
+              </div>
+              <div class="icon-element">
+                <div class="icon-element__i-wrap">
+                  <i class="icon-element__i icon-timer"></i>
                 </div>
-                <div class="icon-element">
-                  <div class="icon-element__i-wrap">
-                    <i class="icon-element__i icon-lock"></i>
-                  </div>
-                  <div class="icon-element__text">Включите «не беспокоить»</div>
+                <div class="icon-element__text">Выделите 35 минут</div>
+              </div>
+              <div class="icon-element">
+                <div class="icon-element__i-wrap">
+                  <i class="icon-element__i icon-lock"></i>
                 </div>
+                <div class="icon-element__text">Включите «не беспокоить»</div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section section-team">
+      <section id="team" class="section section-team">
         <div class="container">
           <div class="card-section">
             <div class="section-team__description">
@@ -807,9 +549,14 @@
                 </div>
               </div>
             </div>
-            <div class="team-swiper-wrap section-team__carousell">
+            <div
+              class="team-swiper-wrap section-team__carousell"
+              data-anijs="if: scroll, on: window, do: fadeInRight animated, before: scrollReveal "
+            >
               <div class="team-swiper swiper-container">
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">Список недоступен</div>
+                  <!-- Team card structure START
                   <div class="swiper-slide">
                     <div class="team-member-card-wrap">
                       <div class="team-member-card">
@@ -841,161 +588,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="team-member-card-wrap">
-                      <div class="team-member-card">
-                        <div class="team-member-card__image-wrap">
-                          <img
-                            src="assets/member-1.png"
-                            alt="member"
-                            class="team-member-card__image"
-                          />
-                        </div>
-                        <div class="team-member-card__body">
-                          <div class="team-member-card__body-name">Name</div>
-                          <div class="team-member-card__body-position">
-                            Position
-                          </div>
-                          <div class="team-member-card__body-accolades">
-                            Accolades
-                          </div>
-                          <div class="team-member-card__body-socials">
-                            <a
-                              href="#"
-                              class="team-member-card__body-social-link"
-                              target="_blank"
-                            >
-                              facebook
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="team-member-card-wrap">
-                      <div class="team-member-card">
-                        <div class="team-member-card__image-wrap">
-                          <img
-                            src="assets/member-1.png"
-                            alt="member"
-                            class="team-member-card__image"
-                          />
-                        </div>
-                        <div class="team-member-card__body">
-                          <div class="team-member-card__body-name">Name</div>
-                          <div class="team-member-card__body-position">
-                            Position
-                          </div>
-                          <div class="team-member-card__body-accolades">
-                            Accolades
-                          </div>
-                          <div class="team-member-card__body-socials">
-                            <a
-                              href="#"
-                              class="team-member-card__body-social-link"
-                              target="_blank"
-                            >
-                              facebook
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="team-member-card-wrap">
-                      <div class="team-member-card">
-                        <div class="team-member-card__image-wrap">
-                          <img
-                            src="assets/member-1.png"
-                            alt="member"
-                            class="team-member-card__image"
-                          />
-                        </div>
-                        <div class="team-member-card__body">
-                          <div class="team-member-card__body-name">Name</div>
-                          <div class="team-member-card__body-position">
-                            Position
-                          </div>
-                          <div class="team-member-card__body-accolades">
-                            Accolades
-                          </div>
-                          <div class="team-member-card__body-socials">
-                            <a
-                              href="#"
-                              class="team-member-card__body-social-link"
-                              target="_blank"
-                            >
-                              facebook
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="team-member-card-wrap">
-                      <div class="team-member-card">
-                        <div class="team-member-card__image-wrap">
-                          <img
-                            src="assets/member-1.png"
-                            alt="member"
-                            class="team-member-card__image"
-                          />
-                        </div>
-                        <div class="team-member-card__body">
-                          <div class="team-member-card__body-name">Name</div>
-                          <div class="team-member-card__body-position">
-                            Position
-                          </div>
-                          <div class="team-member-card__body-accolades">
-                            Accolades
-                          </div>
-                          <div class="team-member-card__body-socials">
-                            <a
-                              href="#"
-                              class="team-member-card__body-social-link"
-                              target="_blank"
-                            >
-                              facebook
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="team-member-card-wrap">
-                      <div class="team-member-card">
-                        <div class="team-member-card__image-wrap">
-                          <img
-                            src="assets/member-1.png"
-                            alt="member"
-                            class="team-member-card__image"
-                          />
-                        </div>
-                        <div class="team-member-card__body">
-                          <div class="team-member-card__body-name">Name</div>
-                          <div class="team-member-card__body-position">
-                            Position
-                          </div>
-                          <div class="team-member-card__body-accolades">
-                            Accolades
-                          </div>
-                          <div class="team-member-card__body-socials">
-                            <a
-                              href="#"
-                              class="team-member-card__body-social-link"
-                              target="_blank"
-                            >
-                              facebook
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  Team card structure END -->
                 </div>
               </div>
               <!-- Add Arrows -->
@@ -1003,79 +596,68 @@
               <div class="swiper-button-prev"></div> -->
             </div>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 mbp-30 mb-md-0">
                 <p class="section__small-title">Команда</p>
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__position">Режисер:</p>
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__position">Режисер:</p>
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__position">Режисер:</p>
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__position">Режисер:</p>
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
+                <div class="row team-row-1">
+                  <div class="col-12">Список недоступен</div>
                 </div>
               </div>
               <div class="col-md-6">
                 <p class="section__small-title">Команда</p>
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="team-member">
-                      <p class="team-member__name">Нурбек Эген</p>
-                    </div>
-                  </div>
+                <div class="row team-row-2">
+                  <div class="col-12">Список недоступен</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section section-footer">
+      <section id="contacts" class="section section-footer">
         <div class="container position-relative">
           <div class="row">
-            <div class="col-md-4">
-              <p class="section__small-title">Как с нами связаться</p>
+            <div class="col-lg-4 order-2 order-md-1">
+              <p
+                class="section__small-title"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+              >
+                Как с нами связаться
+              </p>
               <div class="footer-contacts">
-                <div class="footer-contact-btn-wrap">
-                  <a class="footer-contact-btn" href="#">promo@mestod.kg</a>
+                <div
+                  class="footer-contact-btn-wrap"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  <a class="footer-contact-btn" href="mailto:promo@mestod.kg">
+                    promo@mestod.kg
+                  </a>
                 </div>
-                <div class="footer-contact-btn-wrap">
-                  <a class="footer-contact-btn" href="#">+996 550 482 852</a>
+                <div
+                  class="footer-contact-btn-wrap"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  <a class="footer-contact-btn" href="tel:+996550482852">
+                    +996 550 482 852
+                  </a>
+                </div>
+                <div
+                  class="footer-contact-btn-wrap"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  <a class="footer-contact-btn open-contact-popup" href="#">
+                    Связаться с нами
+                  </a>
                 </div>
               </div>
-              <p class="section__small-title mbp-10">Мы в социальных сетях</p>
-              <div class="footer-socials">
+              <p
+                class="section__small-title mbp-10"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+              >
+                Мы в социальных сетях
+              </p>
+              <div
+                class="footer-socials"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+              >
                 <div class="footer-social-btn-wrap">
                   <a class="footer-social-btn" href="#">
                     <i class="icon-vk"></i>
@@ -1098,21 +680,26 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <p class="footer-title">
+            <div
+              class="col-sm-6 col-lg-4 order-1 order-md-2 footer-download-container"
+            >
+              <p
+                class="footer-title delay-1"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+              >
                 Скачивайте приложение и слушайте спектакли прямо в своем
                 телефоне
               </p>
-              <div class="d-flex flex-wrap">
+              <div
+                class="d-flex flex-wrap delay-2"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+              >
                 <a href="#" class="store-btn mrp-10 mrp-lg-10">
-                  <img
-                    src="../assets/app-store-btn.png"
-                    alt="App store button"
-                  />
+                  <img src="assets/app-store-btn.svg" alt="App store button" />
                 </a>
                 <a href="#" class="store-btn">
                   <img
-                    src="../assets/google-play-btn.png"
+                    src="assets/google-play-btn.svg"
                     alt="Google play button"
                   />
                 </a>
@@ -1123,25 +710,40 @@
                 <img
                   src="assets/footer-phone-1.png"
                   alt="phone"
-                  class="footer-phones-item-1"
+                  class="footer-phones-item-1 delay-2"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
                 />
                 <img
                   src="assets/footer-phone-2.png"
                   alt="phone"
-                  class="footer-phones-item-2"
+                  class="footer-phones-item-2 delay-3"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
                 />
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-lg-4 order-2 order-lg-1">
               <div class="footer-copyright-wrap">
-                <p class="footer-copyright">© 2020 «театр МЕСТО Д...»</p>
-                <p class="footer-copyright">Все права защищены</p>
+                <p
+                  class="footer-copyright delay-1"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  © 2020 «театр МЕСТО Д...»
+                </p>
+                <p
+                  class="footer-copyright delay-1"
+                  data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+                >
+                  Все права защищены
+                </p>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="footer-dev-copyright">
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div
+                class="footer-dev-copyright delay-1"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal "
+              >
                 <span class="footer-dev-copyright__text">
                   Сайт и приложение разработаны —
                 </span>
@@ -1161,80 +763,528 @@
     <!-- inject:footer:html -->
     <!-- contents of html partials will be injected here -->
     <!-- endinject -->
-    <div class="floating-circles">
-      <img
-        src="assets/background-top-1.png"
-        alt="circle"
-        class="floating-circle-1"
-      />
-      <img
-        src="assets/background-top-2.png"
-        alt="circle"
-        class="floating-circle-2"
-      />
-      <img
-        src="assets/background-top-33.png"
-        alt="circle"
-        class="floating-circle-3"
-      />
-    </div>
-
-    <div id="contactFormPopup" class="overlay-cdk">
-      <div class="overlay-cdk__content-contact-wrap">
-        <div class="overlay-cdk__content-contact">
-          <div class="overlay-cdk__content-contact-title">
-            Оставьте заявку для расчета стоимости и сроков
-          </div>
-          <form action="/" class="overlay-cdk__content-contact-form mbp-10">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="dd-input-wrap mbp-10">
-                  <input
-                    class="dd-input w-100"
-                    type="text"
-                    name="name"
-                    placeholder="Ваше имя"
-                    autocomplete="name"
-                    required
-                  />
+    <noindex>
+      <div id="contactFormPopup" class="overlay-cdk">
+        <div class="overlay-cdk__content-contact-wrap">
+          <div class="overlay-cdk__content-contact">
+            <div class="overlay-cdk__content-contact-image-wrap">
+              <img
+                src="assets/contact-popup-bg.png"
+                alt="bg"
+                class="overlay-cdk__content-contact-image"
+              />
+            </div>
+            <div class="overlay-cdk__content-contact-body">
+              <p class="overlay-cdk__title">Запрос на сотрудничество</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="overlay-cdk__small-title">Как с нами связаться</p>
+                  <div class="overlay-cdk__content-contact-contacts">
+                    <div
+                      class="overlay-cdk__content-contact-contacts-item-btn-wrap"
+                    >
+                      <a
+                        class="overlay-cdk__content-contact-contacts-item-btn"
+                        href="mailto:promo@mestod.kg"
+                      >
+                        promo@mestod.kg
+                      </a>
+                    </div>
+                    <div
+                      class="overlay-cdk__content-contact-contacts-item-btn-wrap"
+                    >
+                      <a
+                        class="overlay-cdk__content-contact-contacts-item-btn"
+                        href="tel:+996550482852"
+                      >
+                        +996 550 482 852
+                      </a>
+                    </div>
+                  </div>
+                  <p class="overlay-cdk__small-title mbp-10">
+                    Мы в социальных сетях
+                  </p>
+                  <div class="overlay-cdk__content-contact-socials">
+                    <div
+                      class="overlay-cdk__content-contact-socials-item-btn-wrap"
+                    >
+                      <a
+                        class="overlay-cdk__content-contact-socials-item-btn"
+                        href="#"
+                      >
+                        <i class="icon-vk"></i>
+                      </a>
+                    </div>
+                    <div
+                      class="overlay-cdk__content-contact-socials-item-btn-wrap"
+                    >
+                      <a
+                        class="overlay-cdk__content-contact-socials-item-btn"
+                        href="#"
+                      >
+                        <i class="icon-fb"></i>
+                      </a>
+                    </div>
+                    <div
+                      class="overlay-cdk__content-contact-socials-item-btn-wrap"
+                    >
+                      <a
+                        class="overlay-cdk__content-contact-socials-item-btn"
+                        href="#"
+                      >
+                        <i class="icon-ig"></i>
+                      </a>
+                    </div>
+                    <div
+                      class="overlay-cdk__content-contact-socials-item-btn-wrap"
+                    >
+                      <a
+                        class="overlay-cdk__content-contact-socials-item-btn"
+                        href="#"
+                      >
+                        <i class="icon-wu"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <p class="overlay-cdk__small-title mbp-10">
+                    Скачать приложение
+                  </p>
+                  <div class="overlay-cdk__content-contact-stores">
+                    <div class="mbp-10">
+                      <a href="#" class="store-btn">
+                        <img
+                          src="assets/app-store-btn_black.svg"
+                          alt="App store button"
+                        />
+                      </a>
+                    </div>
+                    <div>
+                      <a href="#" class="store-btn">
+                        <img
+                          src="assets/google-play-btn_black.svg"
+                          alt="Google play button"
+                        />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-4">
-                <div class="dd-input-wrap mbp-20">
-                  <input
-                    class="dd-input w-100"
-                    type="tel"
-                    name="phone"
-                    placeholder="Номер телефона"
-                    autocomplete="tel"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div>
-                  <button class="dd-button w-100" type="submit">
-                    Заказать звонок
-                  </button>
+                <div class="col-md-6">
+                  <p class="overlay-cdk__small-title mbp-10">
+                    Запрос на сотрудничество
+                  </p>
+                  <form
+                    action="http://api.mestodteatr.kg/appeals/api/v1/appeals"
+                    method="POST"
+                    data-type="json"
+                    class="overlay-cdk__content-contact-form ajax-contact-form"
+                  >
+                    <div class="dd-input-wrap">
+                      <input
+                        class="dd-input w-100"
+                        type="text"
+                        name="first_name"
+                        placeholder="Имя"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+                    <div class="dd-input-wrap">
+                      <input
+                        class="dd-input w-100"
+                        type="tel"
+                        name="phone"
+                        placeholder="Номер телефона"
+                        autocomplete="tel"
+                        required
+                      />
+                    </div>
+                    <div class="dd-input-wrap">
+                      <input
+                        class="dd-input w-100"
+                        type="email"
+                        name="email"
+                        placeholder="Емайл"
+                        autocomplete="email"
+                        required
+                      />
+                    </div>
+                    <div class="dd-input-wrap mbp-20">
+                      <textarea
+                        class="dd-input w-100"
+                        name="message"
+                        placeholder="Ваше сообщение"
+                        required
+                        cols="30"
+                        rows="5"
+                      ></textarea>
+                    </div>
+                    <div>
+                      <input type="hidden" name="category" value="support" />
+                      <button class="dd-input-btn w-100" type="submit">
+                        Отправить запрос
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div id="playPopup" class="overlay-cdk">
-      <div class="overlay-cdk__content-play-wrap">
-        <div class="overlay-cdk__content-play">
-          <div class="overlay-cdk__content-play-title">
-            Оставьте заявку для расчета стоимости и сроков
           </div>
         </div>
       </div>
-    </div>
+      <div id="thanksPopup" class="overlay-cdk">
+        <div class="overlay-cdk__content-contact-wrap">
+          <div class="overlay-cdk__content-contact">
+            <div class="overlay-cdk__content-contact-image-wrap">
+              <img
+                src="assets/contact-popup-bg.png"
+                alt="bg"
+                class="overlay-cdk__content-contact-image"
+              />
+            </div>
+            <div class="overlay-cdk__content-contact-body">
+              <p class="overlay-cdk__title text-center mbp-20">Спасибо</p>
+              <div class="d-flex justify-content-center">
+                <button
+                  class="dd-input-btn overlay-cdk__close-btn"
+                  type="button"
+                >
+                  ОК
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="playPopup" class="overlay-cdk">
+        <div class="overlay-cdk__content-play-wrap">
+          <div class="overlay-cdk__content-play">
+            <div class="overlay-cdk__content-play-image-wrap">
+              <img
+                src="assets/sample-play-popup-bg.png"
+                alt="bg"
+                class="overlay-cdk__content-play-image"
+              />
+              <div class="overlay-cdk__content-play-image-labels">
+                <div class="overlay-cdk__content-play-image-label">16+</div>
+                <div class="overlay-cdk__content-play-image-label">
+                  Бесплатно
+                </div>
+                <div
+                  class="overlay-cdk__content-play-image-label overlay-cdk__content-play-image-label--hot"
+                >
+                  Хит!
+                </div>
+              </div>
+            </div>
+            <div class="overlay-cdk__content-play-body">
+              <div class="overlay-cdk__content-play-body-header">
+                <div class="overlay-cdk__content-play-body-meta-container">
+                  <div class="overlay-cdk__content-play-body-meta">
+                    <i class="icon-timer"></i>
+                    <span>72 минут</span>
+                  </div>
+                  <div class="overlay-cdk__content-play-body-meta">
+                    <i class="icon-insert"></i>
+                    <span>71 mb</span>
+                  </div>
+                </div>
+                <div class="overlay-cdk__content-play-body-director">
+                  <span
+                    class="overlay-cdk__content-play-body-director-position"
+                  >
+                    Режиссер:
+                  </span>
+                  <span class="overlay-cdk__content-play-body-director-name">
+                    Нурбек Эген
+                  </span>
+                </div>
+              </div>
+              <p class="overlay-cdk__content-play-title">
+                Прогулка по центру Бишкека
+              </p>
+              <div class="overlay-cdk__content-play-route">
+                <div class="overlay-cdk__content-play-route-from">
+                  <span class="overlay-cdk__content-play-route-title">
+                    от
+                  </span>
+                  <span
+                    class="overlay-cdk__content-play-route-name text-truncate"
+                  >
+                    Карагачёвая роща
+                  </span>
+                </div>
+                <div class="overlay-cdk__content-play-route-separator">
+                  <div class="overlay-cdk__content-play-route-long-arrow">
+                    <span class="icon-arrow-body-wrap">
+                      <span class="icon-arrow-body"></span>
+                    </span>
+
+                    <i class="icon-arrow-right"></i>
+                  </div>
+                </div>
+                <div class="overlay-cdk__content-play-route-to">
+                  <span class="overlay-cdk__content-play-route-title">
+                    до
+                  </span>
+                  <span
+                    class="overlay-cdk__content-play-route-name text-truncate"
+                  >
+                    Конно-спортивная улица
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="overlay-cdk__small-title mbp-10">
+                    Прослушать отрывок
+                  </p>
+                  <div class="overlay-cdk__content-play-player">
+                    <div class="overlay-cdk__content-play-player-button-wrap">
+                      <button
+                        id="playPopupPlayer"
+                        class="overlay-cdk__content-play-player-button d-none"
+                        type="button"
+                      >
+                        <i class="icon-play"></i>
+                        <i class="icon-pause"></i>
+                      </button>
+                      <div
+                        id="playPopupPlayerPreloader"
+                        class="overlay-cdk__content-play-player-preloader lds-dual-ring"
+                      ></div>
+
+                      <input
+                        id="playPopupPlayerSrc"
+                        type="hidden"
+                        name="player-src"
+                        value=""
+                      />
+                    </div>
+                    <div class="overlay-cdk__content-play-player-info">
+                      <div class="overlay-cdk__content-play-player-meta">
+                        <div
+                          class="overlay-cdk__content-play-player-timer-wrap"
+                        >
+                          <div
+                            id="playPopupPlayerMin"
+                            class="overlay-cdk__content-play-player-timer-min"
+                          >
+                            0 мин
+                          </div>
+                          <div
+                            id="playPopupPlayerSec"
+                            class="overlay-cdk__content-play-player-timer-sec"
+                          >
+                            0 сек
+                          </div>
+                        </div>
+                        <div
+                          class="overlay-cdk__content-play-player-volume-wrap"
+                        >
+                          <input
+                            id="playPopupPlayerVolume"
+                            class="overlay-cdk__content-play-player-volume d-none"
+                            type="range"
+                            value="5"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="overlay-cdk__content-play-player-progress-bar-wrap"
+                      >
+                        <div
+                          class="overlay-cdk__content-play-player-progress-bar"
+                        >
+                          <div
+                            id="playPopupPlayerProgress"
+                            class="overlay-cdk__content-play-player-progress-bar-overlay"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="overlay-cdk__small-title mbp-10">О чем?</p>
+                  <p class="overlay-cdk__content-play-short-description mbp-10">
+                    Парк отличный, почему бы не прогуляться, и не вспомнить
+                    былое. Вечером приятно прогуляться, давайте сделаем это
+                    вместе!
+                  </p>
+                  <div>
+                    <a href="#popupPlayDescription">
+                      Читать подробное описание
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="overlay-cdk__content-play-icons">
+                <div class="mbp-10 mbp-lg-10">
+                  <span class="tag-label">Обратите внимание!</span>
+                  <span class="tag-hint">Рекомендации для слушателя</span>
+                </div>
+                <div class="icon-elements">
+                  <div class="icon-element">
+                    <div class="icon-element__i-wrap">
+                      <i class="icon-element__i icon-headset"></i>
+                    </div>
+                    <div class="icon-element__text">Подключите наушники</div>
+                  </div>
+                  <div class="icon-element">
+                    <div class="icon-element__i-wrap">
+                      <i class="icon-element__i icon-connect"></i>
+                    </div>
+                    <div class="icon-element__text">
+                      Подключитесь к интернету
+                    </div>
+                  </div>
+                  <div class="icon-element">
+                    <div class="icon-element__i-wrap">
+                      <i class="icon-element__i icon-timer"></i>
+                    </div>
+                    <div class="icon-element__text">Выделите 35 минут</div>
+                  </div>
+                  <div class="icon-element">
+                    <div class="icon-element__i-wrap">
+                      <i class="icon-element__i icon-lock"></i>
+                    </div>
+                    <div class="icon-element__text">
+                      Включите «не беспокоить»
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="overlay-cdk__small-title mbp-10">Маршрут</p>
+                  <div class="overlay-cdk__content-play-timeline-wrap">
+                    <ol class="overlay-cdk__content-play-timeline">
+                      <li class="overlay-cdk__content-play-timeline-item">
+                        Парк Полфилова
+                      </li>
+                      <li class="overlay-cdk__content-play-timeline-item">
+                        Парк Полфилова
+                      </li>
+                      <li class="overlay-cdk__content-play-timeline-item">
+                        Парк Полфилова
+                      </li>
+                      <li class="overlay-cdk__content-play-timeline-item">
+                        Памятник Карлу Марксу и Фридриху Энгельсу
+                      </li>
+                      <li class="overlay-cdk__content-play-timeline-item">
+                        Парк Полфилова
+                      </li>
+                      <li class="overlay-cdk__content-play-timeline-item">
+                        Парк Полфилова
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="overlay-cdk__content-play-team">
+                    <p class="overlay-cdk__small-title mbp-10">Команда</p>
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__position">Режиссер:</p>
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__position">Режиссер:</p>
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__position">Режиссер:</p>
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__position">Режиссер:</p>
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overlay-cdk__content-play-readers">
+                    <p class="overlay-cdk__small-title mbp-10">
+                      Текст зачитывают
+                    </p>
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="team-member mbp-10">
+                          <p class="team-member__name">Нурбек Эген</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="overlay-cdk__content-play-map-wrap">
+                <img
+                  src="assets/sample-map.png"
+                  alt="map"
+                  class="overlay-cdk__content-play-map"
+                />
+              </div>
+              <p class="overlay-cdk__small-title mbp-10">О чем?</p>
+              <div id="popupPlayDescription">
+                <p class="overlay-cdk__content-play-description">
+                  Мы с удовольствием познакомим вас с достопримечательностями
+                  нашего города, расположенными в его центральной части.
+                  Экскурсия начинается от курантов и проходит через три
+                  городские площади, старейший парк, вдоль театров, кинотеатров,
+                  памятников и монументов — в общей сложности гид покажет вам
+                  более 30-ти достопримечательностей. За те несколько часов, что
+                  длится экскурсия, вы узнаете о жизни Бишкека в периоды
+                  Кокандского ханства, Российской Империи, СССР и, наконец,
+                  Независимого Кыргызстана.
+                </p>
+              </div>
+              <p class="overlay-cdk__content-play-download-title">
+                Слушать в приложении:
+              </p>
+              <div class="d-flex flex-wrap">
+                <a href="#" class="store-btn mrp-10 mrp-lg-10">
+                  <img
+                    src="assets/app-store-btn_black.svg"
+                    alt="App store button"
+                  />
+                </a>
+                <a href="#" class="store-btn">
+                  <img
+                    src="assets/google-play-btn_black.svg"
+                    alt="Google play button"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </noindex>
     <script src="js/components.min.js"></script>
     <script src="libs/swiper/swiper.min.js"></script>
     <script src="libs/howler/howler.min.js"></script>
+    <script src="libs/drawsvg/jquery.drawsvg.min.js"></script>
+    <script src="libs/rellax/rellax.min.js"></script>
+    <script src="libs/imagesloaded/imagesloaded.min.js"></script>
+    <script src="libs/anijs/anijs.min.js"></script>
+    <script src="libs/anijs/helpers/scrollreveal/anijs-helper-scrollreveal-min.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>
