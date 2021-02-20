@@ -500,8 +500,7 @@
       console.log(requestObj);
 
       $(".overlay-cdk").removeClass("active");
-      $("body").addClass("overflow-hidden");
-      $("#thanksPopup").addClass("active");
+      openThanks();
 
       return;
 
@@ -692,7 +691,7 @@
 
       $("#mainHeaderNavbar")
         .find(".navbar-nav")
-        .css({ transition: 0, transform: "translateX(-300px)" });
+        .css({ transition: 0, transform: "translateX(300px)" });
       setTimeout(() => {
         $("#mainHeaderNavbar")
           .find(".navbar-nav")
@@ -711,7 +710,7 @@
     function closeNavbarOverlay() {
       $("#mainHeaderNavbar")
         .find(".navbar-nav")
-        .css({ transition: "400ms", transform: "translateX(-300px)" });
+        .css({ transition: "400ms", transform: "translateX(300px)" });
 
       setTimeout(() => {
         $(".navbar-collapse").removeClass("open");
@@ -788,6 +787,14 @@
       e.preventDefault();
       $("body").addClass("overflow-hidden");
       $("#playPopup").addClass("active");
+      $("#playPopup")
+        .find(".overlay-cdk__content-wrap")
+        .css({ transform: "translateY(100%)" });
+      setTimeout(() => {
+        $("#playPopup")
+          .find(".overlay-cdk__content-wrap")
+          .css({ transition: "600ms", transform: "translateY(0)" });
+      }, 0);
 
       const id = $(this).data("id");
 
@@ -1059,12 +1066,33 @@
       e.preventDefault();
       $("body").addClass("overflow-hidden");
       $("#contactFormPopup").addClass("active");
+
+      $("#contactFormPopup")
+        .find(".overlay-cdk__content-wrap")
+        .css({ transform: "translateY(100%)" });
+      setTimeout(() => {
+        $("#contactFormPopup")
+          .find(".overlay-cdk__content-wrap")
+          .css({ transition: "600ms", transform: "translateY(0)" });
+      }, 0);
     });
     $(".open-thanks-popup").on("click", function (e) {
       e.preventDefault();
+      openThanks();
+    });
+    function openThanks() {
       $("body").addClass("overflow-hidden");
       $("#thanksPopup").addClass("active");
-    });
+
+      $("#thanksPopup")
+        .find(".overlay-cdk__content-wrap")
+        .css({ transform: "translateY(100%)" });
+      setTimeout(() => {
+        $("#thanksPopup")
+          .find(".overlay-cdk__content-wrap")
+          .css({ transition: "600ms", transform: "translateY(0)" });
+      }, 0);
+    }
 
     // Close overlay on outside click
     $(".overlay-cdk").on("click", function (e) {
