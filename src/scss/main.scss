@@ -799,6 +799,11 @@ a {
 
   display: flex;
 
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+
   &__image {
     &-wrap {
       width: 70px;
