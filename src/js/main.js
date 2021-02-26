@@ -1,3 +1,9 @@
+// Configs
+const config = {
+  membersUrl: "http://api.mestodteatr.kg/plays-service/members",
+  playsUrl: "http://api.mestodteatr.kg/plays-service/plays",
+};
+
 (function ($) {
   // Document ready
   $(function () {
@@ -14,405 +20,136 @@
     //   },
     // });
 
-    // Load members
-    // Get request and put as array
-    let members_big = [
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "FirstName",
-        lastname: "LastName",
-        middlename: "MiddleName",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "FirstName",
-        lastname: "LastName",
-        middlename: "MiddleName",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "FirstName",
-        lastname: "LastName",
-        middlename: "MiddleName",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "FirstName",
-        lastname: "LastName",
-        middlename: "MiddleName",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "FirstName",
-        lastname: "LastName",
-        middlename: "MiddleName",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "FirstName",
-        lastname: "LastName",
-        middlename: "MiddleName",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-    ];
-    $(".team-swiper .swiper-wrapper").each(function () {
-      $(this).empty();
-
-      members_big.forEach((member) => {
-        let accoladesString = "";
-        member.accolades.forEach((accolade) => {
-          accoladesString += `${accolade}, `;
-        });
-        let socialsString = "";
-        member.socials.forEach((social) => {
-          socialsString += `
-            <div>
-              <a
-                href="${social.value}"
-                class="team-member-card__body-social-link"
-                target="_blank"
-              >
-                ${social.name}
-              </a>
-            </div>
-          `;
-        });
-
-        $(this).append(`
-        <div class="swiper-slide">
-          <div class="team-member-card-wrap">
-            <div class="team-member-card">
-              <div class="team-member-card__image-wrap">
-                <img
-                  src="${member.avatar_url}"
-                  alt="member"
-                  class="team-member-card__image"
-                />
-              </div>
-              <div class="team-member-card__body">
-                <div class="team-member-card__body-name">
-                  ${member.lastname} ${member.firstname} ${member.middlename}
-                </div>
-                <div class="team-member-card__body-position">
-                  ${member.member_role}
-                </div>
-                <div class="team-member-card__body-accolades">
-                  ${accoladesString}
-                </div>
-                <div class="team-member-card__body-socials">
-                  ${socialsString}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `);
-      });
-    });
-
-    let members_small_1 = [
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-    ];
-    let members_small_2 = [
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-      {
-        avatar_url: "assets/member-1.png",
-        firstname: "Нурбек",
-        lastname: "Эген",
-        middlename: "",
-        member_role: "Role",
-        accolades: ["accolade 1", "accolade 2", "accolade 3"],
-        socials: [
-          {
-            name: "facebook",
-            value: "https://google.com",
-          },
-        ],
-      },
-    ];
-
-    $(".team-row-1").each(function () {
-      $(this).empty();
-
-      members_small_1.forEach((member) => {
-        $(this).append(`
-          <div class="col-6 col-md-4">
-            <div class="team-member">
-              <p class="team-member__position">${member.member_role}:</p>
-              <p class="team-member__name">${member.lastname} ${member.firstname} ${member.middlename}</p>
-            </div>
-          </div>
-        `);
-      });
-    });
-
-    $(".team-row-2").each(function () {
-      $(this).empty();
-
-      members_small_2.forEach((member) => {
-        $(this).append(`
-          <div class="col-6 col-md-4">
-            <div class="team-member">
-              <p class="team-member__position">${member.member_role}:</p>
-              <p class="team-member__name">${member.lastname} ${member.firstname} ${member.middlename}</p>
-            </div>
-          </div>
-        `);
-      });
-    });
-
-    // Load preview player file and data ?
-    function loadPreview() {}
-
     // Load plays
-    let plays = [
-      {
-        id: 1,
-        age_category: "18+",
-        is_free: true,
-        is_hot: true,
-        img_url: "assets/card-1.png",
-        name: "glossary 1",
-        desc:
-          "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
-        short_desc:
-          "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
-        track_url:
-          "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-      },
-      {
-        id: 2,
-        age_category: "17+",
-        is_free: true,
-        is_hot: true,
-        img_url: "assets/card-1.png",
-        name: "glossary 2",
-        desc:
-          "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
-        short_desc:
-          "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
-        track_url:
-          "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-      },
-      {
-        id: 3,
-        age_category: "18+",
-        is_free: true,
-        is_hot: true,
-        img_url: "assets/card-1.png",
-        name: "glossary",
-        desc:
-          "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
-        short_desc:
-          "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
-        track_url:
-          "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-      },
-      {
-        id: 4,
-        age_category: "18+",
-        is_free: true,
-        is_hot: true,
-        img_url: "assets/card-1.png",
-        name: "glossary",
-        desc:
-          "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
-        short_desc:
-          "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
-        track_url:
-          "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-      },
-      {
-        id: 5,
-        age_category: "18+",
-        is_free: true,
-        is_hot: true,
-        img_url: "assets/card-1.png",
-        name: "glossary",
-        desc:
-          "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
-        short_desc:
-          "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
-        track_url:
-          "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-      },
-      {
-        id: 6,
-        age_category: "18+",
-        is_free: true,
-        is_hot: true,
-        img_url: "assets/card-1.png",
-        name: "glossary",
-        desc:
-          "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
-        short_desc:
-          "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
-        track_url:
-          "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-      },
-    ];
+    let plays = [];
+    getPlays();
 
-    $(".plays-swiper .swiper-wrapper").each(function () {
-      $(this).empty();
+    function getPlays() {
+      $.ajax({
+        url: config.playsUrl,
+        type: "GET",
+        dataType: null,
+        async: false,
+        success: function (res) {
+          if (!res.success) {
+            return;
+          }
+          const data = res.data;
 
-      plays.forEach((play) => {
-        let labelsString = "";
-        if (play.age_category) {
-          labelsString += `<div class="play-card__image-label">${play.age_category}</div>`;
-        }
-        if (play.is_free) {
-          labelsString += `<div class="play-card__image-label">Бесплатно</div>`;
-        }
-        if (play.is_hot) {
-          labelsString += `<div class="play-card__image-label play-card__image-label--hot">
+          plays = data.map((play) => {
+            const {
+              id,
+              age_category,
+              cost,
+              create_date,
+              duration_min,
+              img_url,
+              is_free,
+              team_id,
+            } = play;
+            const {
+              desc,
+              file_size,
+              lang,
+              name,
+              short_desc,
+              track_url,
+              video_url,
+            } = play.content[0];
+            return {
+              // Main
+              id,
+              age_category,
+              cost,
+              duration_min,
+              img_url,
+              is_free,
+              team_id,
+              create_date,
+              // Content
+              desc,
+              file_size,
+              lang,
+              name,
+              short_desc,
+              track_url, // E.g. "assets/sample.mp3"
+              video_url,
+              // Don't exist / rename accordingly later
+              is_hot: true,
+              director_name: null,
+              route_from: null,
+              route_to: null,
+              map: null, // E.g. "assets/sample-map.png"
+              members: [],
+              // members: [
+              //   {
+              //     name: "name",
+              //     position: "position",
+              //   },
+              // ]
+              readers: [],
+              // readers: [
+              //   {
+              //     name: "Нурбек Эген",
+              //   },
+              // ]
+              route: [],
+              // route: [
+              //   {
+              //     name: "Парк полифилова",
+              //   },
+              // ]
+            };
+          });
+          console.log(plays);
+        },
+        error: function (data) {
+          console.error(data);
+        },
+      });
+
+      // Update cards DOM
+      $(".plays-swiper .swiper-wrapper").each(function () {
+        $(this).empty();
+
+        plays.forEach((play) => {
+          const {
+            id,
+            img_url,
+            name,
+            director_name,
+            route_from,
+            route_to,
+            duration_min,
+            file_size,
+            age_category,
+            is_free,
+            is_hot,
+          } = play;
+
+          let durationString = `${duration_min} минут`;
+          let sizeString = `${file_size} mb`;
+          let labelsString = "";
+          if (age_category) {
+            labelsString += `<div class="play-card__image-label">${age_category}</div>`;
+          }
+          if (is_free) {
+            labelsString += `<div class="play-card__image-label">Бесплатно</div>`;
+          }
+          if (is_hot) {
+            labelsString += `<div class="play-card__image-label play-card__image-label--hot">
             Хит!
           </div>`;
-        }
+          }
 
-        let durationString = "72 минут";
-        let sizeString = "71 mb";
-        let directorName = "Нурбек Эген";
-
-        let fromString = "Карагачёвая роща";
-        let toString = "Конно-спортивная улица";
-
-        $(this).append(`
+          $(this).append(`
           <div class="swiper-slide">
             <div class="play-card-wrap">
-              <a class="open-play-popup" data-id="${play.id}">
+              <a class="open-play-popup" data-id="${id}">
                 <div class="play-card">
                   <div class="play-card__image-wrap">
                     <img
-                      src="${play.img_url}"
+                      src="${img_url}"
                       alt="play"
                       class="play-card__image"
                     />
@@ -437,12 +174,12 @@
                           Режиссер:
                         </span>
                         <span class="play-card__body-director-name">
-                          ${directorName}
+                          ${director_name}
                         </span>
                       </div>
                     </div>
                     <div class="play-card__body-title">
-                      ${play.name}
+                      ${name}
                     </div>
                     <div class="play-card__body-route">
                       <div class="play-card__body-route-from">
@@ -452,7 +189,7 @@
                         <span
                           class="play-card__body-route-name text-truncate"
                         >
-                          ${fromString}
+                          ${route_from}
                         </span>
                       </div>
                       <div class="play-card__body-route-separator">
@@ -465,7 +202,7 @@
                         <span
                           class="play-card__body-route-name text-truncate"
                         >
-                          ${toString}
+                          ${route_to}
                         </span>
                       </div>
                     </div>
@@ -480,8 +217,225 @@
             </div>
           </div>
         `);
+        });
       });
-    });
+    }
+
+    // Load members
+    let members = [];
+    getMembers();
+
+    function getMembers() {
+      $.ajax({
+        url: config.membersUrl,
+        type: "GET",
+        dataType: null,
+        async: false,
+        success: function (res) {
+          if (!res.success) {
+            return;
+          }
+          const data = res.data;
+          members = data.map((member) => {
+            const { avatar_url, id, role_id, team_id } = member;
+            const {
+              desc,
+              first_name,
+              lang,
+              last_name,
+              middle_name,
+            } = member.member_info[0];
+            const { name_ru: role_ru, name_en, name_kg } = member.member_role;
+
+            return {
+              // Main
+              id,
+              avatar_url,
+              role_id,
+              team_id,
+              // Content
+              desc,
+              first_name,
+              lang,
+              last_name,
+              middle_name,
+              // Role
+              role: role_ru,
+              // Don't exist
+              socials: [],
+            };
+          });
+          console.log(members);
+        },
+        error: function (data) {
+          console.error(data);
+        },
+      });
+
+      let members_big = members; // Filter to get only "big" members?
+
+      // Split into halfs
+      // let members_small_1 = [];
+      // let members_small_2 = [];
+
+      // if (members.length > 1) {
+      //   const halfList = Math.ceil(members.length / 2);
+      //   members_small_1 = [...members].splice(0, halfList);
+      //   members_small_2 = [...members].splice(-halfList);
+      // } else {
+      //   members_small_1 = [...members];
+      // }
+
+      $(".team-swiper .swiper-wrapper").each(function () {
+        $(this).empty();
+
+        members_big.forEach((member) => {
+          const {
+            first_name,
+            last_name,
+            middle_name,
+            avatar_url,
+            desc,
+            role,
+          } = member;
+
+          let accoladesString = desc;
+          // member.accolades.forEach((accolade) => {
+          //   accoladesString += `${accolade}, `;
+          // });
+          let socialsString = "";
+          member.socials.forEach((social) => {
+            socialsString += `
+              <div>
+                <a
+                  href="${social.value}"
+                  class="team-member-card__body-social-link"
+                  target="_blank"
+                >
+                  ${social.name}
+                </a>
+              </div>
+            `;
+          });
+
+          $(this).append(`
+          <div class="swiper-slide">
+            <div class="team-member-card-wrap">
+              <div class="team-member-card">
+                <div class="team-member-card__image-wrap">
+                  <img
+                    src="${avatar_url}"
+                    alt="member"
+                    class="team-member-card__image"
+                  />
+                </div>
+                <div class="team-member-card__body">
+                  <div class="team-member-card__body-name">
+                    ${last_name} ${first_name} ${middle_name}
+                  </div>
+                  <div class="team-member-card__body-position">
+                    ${role}
+                  </div>
+                  <div class="team-member-card__body-accolades">
+                    ${accoladesString}
+                  </div>
+                  <div class="team-member-card__body-socials">
+                    ${socialsString}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `);
+        });
+      });
+
+      $(".team-row").each(function () {
+        $(this).empty();
+        members.forEach((member) => {
+          const {
+            first_name,
+            last_name,
+            middle_name,
+            avatar_url,
+            desc,
+            role,
+          } = member;
+
+          $(this).append(`
+            <div class="col-6 col-md-2">
+              <div class="team-member">
+                <p class="team-member__position">${role}:</p>
+                <p class="team-member__name">${last_name} ${first_name} ${middle_name}</p>
+              </div>
+            </div>
+          `);
+        });
+      });
+
+      // Two cols layout ?
+
+      // Split into halfs
+      // let members_small_1 = [];
+      // let members_small_2 = [];
+
+      // if (members.length > 1) {
+      //   const halfList = Math.ceil(members.length / 2);
+      //   members_small_1 = [...members].splice(0, halfList);
+      //   members_small_2 = [...members].splice(-halfList);
+      // } else {
+      //   members_small_1 = [...members];
+      // }
+
+      // $(".team-row-1").each(function () {
+      //   $(this).empty();
+      //   members_small_1.forEach((member) => {
+      //     const {
+      //       first_name,
+      //       last_name,
+      //       middle_name,
+      //       avatar_url,
+      //       desc,
+      //       role,
+      //     } = member;
+
+      //     $(this).append(`
+      //       <div class="col-6 col-md-4">
+      //         <div class="team-member">
+      //           <p class="team-member__position">${role}:</p>
+      //           <p class="team-member__name">${last_name} ${first_name} ${middle_name}</p>
+      //         </div>
+      //       </div>
+      //     `);
+      //   });
+      // });
+
+      // $(".team-row-2").each(function () {
+      //   $(this).empty();
+      //   members_small_2.forEach((member) => {
+      //     const {
+      //       first_name,
+      //       last_name,
+      //       middle_name,
+      //       avatar_url,
+      //       desc,
+      //       role,
+      //     } = member;
+
+      //     $(this).append(`
+      //       <div class="col-6 col-md-4">
+      //         <div class="team-member">
+      //         <p class="team-member__position">${role}:</p>
+      //         <p class="team-member__name">${last_name} ${first_name} ${middle_name}</p>
+      //         </div>
+      //       </div>
+      //     `);
+      //   });
+      // });
+    }
+
+    // Load preview player file and data ?
+    function getPreview() {}
 
     // Ajax form submit / Аякс форма настраивается тут
     $(".ajax-contact-form").on("submit", function (e) {
@@ -499,17 +453,13 @@
 
       console.log(requestObj);
 
-      $(".overlay-cdk").removeClass("active");
-      openThanks();
-
-      return;
-
       $.ajax({
         url,
         type: method,
         dataType: dataType,
         data: {
-          action: "ajaxForm",
+          ...requestObj,
+          // action: "ajaxForm",
           // serialized,
         },
         success: function (data) {
@@ -518,8 +468,7 @@
 
           // Open thanks popup
           $(".overlay-cdk").removeClass("active");
-          $("body").addClass("overflow-hidden");
-          $("#thanksPopup").addClass("active");
+          openThanks();
         },
         error: function (data) {
           // Basic error handling
@@ -528,18 +477,6 @@
         },
       });
     });
-
-    // Page loaded
-    // let preloadVal = 0;
-    // let preloadInterval = setInterval(function () {
-    //   preloadVal = preloadVal + 20;
-    //   if (preloadVal < 100) {
-    //     $(".preloader-section__bar-overlay").css("width", `${preloadVal}%`);
-    //   }
-    //   if (preloadVal >= 100) {
-    //     clearInterval(preloadInterval);
-    //   }
-    // }, 1000);
 
     let isPreloaded = false;
     $("body")
@@ -561,7 +498,7 @@
         }
       });
 
-    // Timeout just in case (Keep in mind it won't trigger after critical error)
+    // Timeout just in case (Keep in mind it won't trigger after critical js error)
     setTimeout(() => {
       if (!isPreloaded) {
         finishPreload();
@@ -799,60 +736,39 @@
       const id = $(this).data("id");
 
       const playObj = plays.find((play) => play.id === id);
-      console.log(playObj);
+
+      const {
+        is_hot,
+        is_free,
+        age_category,
+        img_url,
+        name,
+        short_desc,
+        track_url,
+        director_name,
+        route_from,
+        route_to,
+        map,
+        desc,
+        members,
+        readers,
+        route,
+      } = playObj;
 
       let labelsString = "";
-      if (playObj.age_category) {
-        labelsString += `<div class="play-card__image-label">${playObj.age_category}</div>`;
+      if (age_category) {
+        labelsString += `<div class="play-card__image-label">${age_category}</div>`;
       }
-      if (playObj.is_free) {
+      if (is_free) {
         labelsString += `<div class="play-card__image-label">Бесплатно</div>`;
       }
-      if (playObj.is_hot) {
+      if (is_hot) {
         labelsString += `<div class="play-card__image-label play-card__image-label--hot">
           Хит!
         </div>`;
       }
 
-      let img_url = playObj.img_url;
-      let name = playObj.name;
-
-      let short_desc = playObj.short_desc;
-
-      let track_url = "assets/sample.mp3";
-
-      let durationString = "72 минут";
-      let sizeString = "71 mb";
-      let directorName = "Нурбек Эген";
-      let metaString = `
-        <div class="overlay-cdk__content-play-body-meta">
-          <i class="icon-timer"></i>
-          <span>${durationString}</span>
-        </div>
-        <div class="overlay-cdk__content-play-body-meta">
-          <i class="icon-insert"></i>
-          <span>${sizeString}</span>
-        </div>
-      `;
-
-      let fromString = "Карагачёвая роща";
-      let toString = "Конно-спортивная улица";
-
-      let membersString = ``;
-      let members = [
-        {
-          name: "name",
-          position: "position",
-        },
-        {
-          name: "name",
-          position: "position",
-        },
-        {
-          name: "name",
-          position: "position",
-        },
-      ];
+      let membersString = "";
       members.forEach((member) => {
         membersString += `
           <div class="col-6">
@@ -864,18 +780,7 @@
         `;
       });
 
-      let readersString = ``;
-      let readers = [
-        {
-          name: "Нурбек Эген",
-        },
-        {
-          name: "Нурбек Эген",
-        },
-        {
-          name: "Нурбек Эген",
-        },
-      ];
+      let readersString = "";
       readers.forEach((reader) => {
         readersString += `
           <div class="col-6">
@@ -886,35 +791,27 @@
         `;
       });
 
-      let pathString = ``;
-      let path = [
-        {
-          name: "Парк полифилова",
-        },
-        {
-          name: "Парк полифилова",
-        },
-        {
-          name: "Парк полифилова",
-        },
-        {
-          name: "Парк полифилова",
-        },
-        {
-          name: "Парк полифилова",
-        },
-      ];
-      path.forEach((pathItem) => {
-        pathString += `
+      let routeString = "";
+      route.forEach((routeItem) => {
+        routeString += `
           <li class="overlay-cdk__content-play-timeline-item">
-            ${pathItem.name}
+            ${routeItem.name}
           </li>
         `;
       });
 
-      let map = "assets/sample-map.png";
-
-      let desc = playObj.desc;
+      let durationString = `${playObj.duration_min} минут`;
+      let sizeString = `${playObj.file_size} mb`;
+      let metaString = `
+        <div class="overlay-cdk__content-play-body-meta">
+          <i class="icon-timer"></i>
+          <span>${durationString}</span>
+        </div>
+        <div class="overlay-cdk__content-play-body-meta">
+          <i class="icon-insert"></i>
+          <span>${sizeString}</span>
+        </div>
+      `;
 
       // Change popup content here
       $("#playPopup .overlay-cdk__content-play-image").attr("src", img_url);
@@ -926,7 +823,7 @@
         metaString,
       );
       $("#playPopup .overlay-cdk__content-play-body-director-name").html(
-        directorName,
+        director_name,
       );
       $("#playPopup .overlay-cdk__content-play-short-description").html(
         short_desc,
@@ -936,12 +833,12 @@
 
       $(
         "#playPopup .overlay-cdk__content-play-route-from .overlay-cdk__content-play-route-name",
-      ).html(fromString);
+      ).html(route_from);
       $(
         "#playPopup .overlay-cdk__content-play-route-to .overlay-cdk__content-play-route-name",
-      ).html(toString);
+      ).html(route_to);
 
-      $("#playPopup .overlay-cdk__content-play-timeline").html(pathString);
+      $("#playPopup .overlay-cdk__content-play-timeline").html(routeString);
 
       $("#playPopup .overlay-cdk__content-play-team > .row").html(
         membersString,
@@ -1237,3 +1134,71 @@
     });
   });
 })(jQuery);
+
+// plays dummy
+// let plays = [
+//   {
+//     id: 1,
+//     age_category: "18+",
+//     is_free: true,
+//     is_hot: true,
+//     img_url: "assets/card-1.png",
+//     name: "glossary 1",
+//     desc:
+//       "Добро пожаловать в Бишкек! \r\n\r\nМы с удовольствием познакомим вас с достопримечательностями нашего города, расположенными в его центральной части. Экскурсия начинается от курантов и проходит через три городские площади, старейший парк, вдоль театров, кинотеатров, памятников и монументов — в общей сложности гид покажет вам более 30-ти достопримечательностей. За те несколько часов, что длится экскурсия, вы узнаете о жизни Бишкека в периоды Кокандского ханства, Российской Империи, СССР и, наконец, Независимого Кыргызстана.\r\n    \r\nПрограмма экскурсии включает обзорное посещение двух музеев — Музея Изобразительных Искусств и Дома-музея Михаила Фрунзе. После того, как в Историческом музее будет закончена реставрация, мы с радостью включим его в наш маршрут!",
+//     short_desc:
+//       "Парк отличный, почему бы не прогуляться, и не вспомнить былое. Вечером приятно прогуляться, давайте сделаем это вместе!",
+//     track_url:
+//       "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
+//   },
+// ];
+
+// members dummy
+// let members_big = [
+//   {
+//     avatar_url: "assets/member-1.png",
+//     firstname: "FirstName",
+//     lastname: "LastName",
+//     middlename: "MiddleName",
+//     member_role: "Role",
+//     accolades: ["accolade 1", "accolade 2", "accolade 3"],
+//     socials: [
+//       {
+//         name: "facebook",
+//         value: "https://google.com",
+//       },
+//     ],
+//   },
+// ];
+// let members_small_1 = [
+//   {
+//     avatar_url: "assets/member-1.png",
+//     firstname: "Нурбек",
+//     lastname: "Эген",
+//     middlename: "",
+//     member_role: "Role",
+//     accolades: ["accolade 1", "accolade 2", "accolade 3"],
+//     socials: [
+//       {
+//         name: "facebook",
+//         value: "https://google.com",
+//       },
+//     ],
+//   },
+// ];
+// let members_small_2 = [
+//   {
+//     avatar_url: "assets/member-1.png",
+//     firstname: "Нурбек",
+//     lastname: "Эген",
+//     middlename: "",
+//     member_role: "Role",
+//     accolades: ["accolade 1", "accolade 2", "accolade 3"],
+//     socials: [
+//       {
+//         name: "facebook",
+//         value: "https://google.com",
+//       },
+//     ],
+//   },
+// ];
