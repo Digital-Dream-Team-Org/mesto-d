@@ -70,6 +70,10 @@ const paths = {
     src: "src/libs/**",
     dest: "dist/libs",
   },
+  root: {
+    src: "src/root/**",
+    dest: "dist",
+  },
 };
 
 // Delete dist folder
@@ -184,6 +188,11 @@ function buildFonts() {
     .pipe(gulp.dest(paths.assets.fontsDest));
 }
 
+// Move root from working to dist directory
+function buildRoot() {
+  return gulp.src(paths.root.src).pipe(gulp.dest(paths.root.dest));
+}
+
 // Optimize and move images from working to dist directory
 function buildImagesProd() {
   return (
@@ -221,8 +230,18 @@ function buildLibraries() {
   return gulp.src(paths.libraries.src).pipe(gulp.dest(paths.libraries.dest)); // Move it to dist/libs
 }
 
-const buildAssetsProd = gulp.parallel(buildFonts, buildImagesProd, buildAssets);
-const buildAssetsDev = gulp.parallel(buildFonts, buildImagesDev, buildAssets);
+const buildAssetsProd = gulp.parallel(
+  buildFonts,
+  buildImagesProd,
+  buildAssets,
+  buildRoot,
+);
+const buildAssetsDev = gulp.parallel(
+  buildFonts,
+  buildImagesDev,
+  buildAssets,
+  buildRoot,
+);
 
 // Config and start browser sync
 function bSync() {

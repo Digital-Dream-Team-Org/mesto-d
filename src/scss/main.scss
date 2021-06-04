@@ -675,6 +675,10 @@ a {
     z-index: 1;
     position: relative;
 
+    min-height: 216px;
+    display: flex;
+    flex-direction: column;
+
     &-header {
       margin-bottom: 15px;
       display: flex;
@@ -701,6 +705,7 @@ a {
       }
     }
     &-director {
+      max-width: 50%;
       font-family: "Roboto", sans-serif;
       font-size: 12px;
       line-height: 14px;
@@ -763,6 +768,9 @@ a {
         text-decoration-line: underline;
         color: #263477;
       }
+    }
+    &-controls {
+      margin-top: auto;
     }
   }
 
@@ -1890,7 +1898,8 @@ a {
       margin-top: 25px;
       margin-bottom: 25px;
       padding: 20px;
-      border: 1px solid rgba(0, 0, 0, 0.2);
+      // border: 1px solid rgba(0, 0, 0, 0.2);
+      border: 1px solid #fdda40;
       border-radius: 20px;
       .icon-elements {
         width: 100%;

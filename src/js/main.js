@@ -1,7 +1,9 @@
 // Configs
 const config = {
-  membersUrl: "http://api.mestodteatr.kg/plays-service/members",
-  playsUrl: "http://api.mestodteatr.kg/plays-service/plays",
+  // membersUrl: "http://api.mestodteatr.kg/plays-service/members",
+  membersUrl: "http://api.mestodteatr.kg/plays-service/api/mobile/members",
+  // playsUrl: "http://api.mestodteatr.kg/plays-service/plays",
+  playsUrl: "http://api.mestodteatr.kg/plays-service/api/mobile/plays?limit=5",
 };
 
 (function ($) {
@@ -31,13 +33,10 @@ const config = {
         dataType: null,
         async: false,
         success: function (res) {
-          if (!res.success) {
-            return;
-          }
           const data = res.data;
 
           plays = data.map((play) => {
-            const {
+            let {
               id,
               age_category,
               cost,
@@ -46,8 +45,6 @@ const config = {
               img_url,
               is_free,
               team_id,
-            } = play;
-            const {
               desc,
               file_size,
               lang,
@@ -55,7 +52,80 @@ const config = {
               short_desc,
               track_url,
               video_url,
-            } = play.content[0];
+              is_hit,
+            } = play;
+
+            let director_name = "N/A";
+            if (play.director) {
+              director_name = `${play.director.first_name} ${play.director.middle_name} ${play.director.last_name}`;
+            }
+
+            let route_from = null;
+            if (play.from) {
+              route_from = play.from.name;
+            }
+
+            let route_to = null;
+            if (play.to) {
+              route_to = play.to.name;
+            }
+
+            let route = [];
+            if (play.markerlist) {
+              route = play.markerlist;
+            }
+            // const {
+            //   id,
+            //   age_category,
+            //   cost,
+            //   create_date,
+            //   duration_min,
+            //   img_url,
+            //   is_free,
+            //   team_id,
+            // } = play;
+            // const {
+            //   desc,
+            //   file_size,
+            //   lang,
+            //   name,
+            //   short_desc,
+            //   track_url,
+            //   video_url,
+            // } = play.content[0];
+
+            // Parse api images
+            let parsedDesc = desc;
+            if (desc) {
+              let descChunk1 = desc.split("![");
+
+              if (descChunk1.length > 1) {
+                let parts = [];
+                descChunk1.forEach((chunk1, index1) => {
+                  if (index1 === 0) {
+                    parts.push(chunk1);
+                  } else if (index1 > 0) {
+                    let taglessChunk = chunk1.split("](")[1];
+                    let imageChunk = taglessChunk.split(")");
+                    let image = imageChunk.shift();
+                    let restPart = imageChunk.join(")");
+                    parts.push(
+                      `<div><img src="${image}" alt="pic" class="w-100" /></div>`,
+                    );
+                    parts.push(restPart);
+                  }
+                });
+
+                parsedDesc = "";
+                parts.forEach((part, index) => {
+                  parsedDesc += part;
+                  if (index + 1 !== parts.length) {
+                    parsedDesc += " ";
+                  }
+                });
+              }
+            }
+
             return {
               // Main
               id,
@@ -67,18 +137,19 @@ const config = {
               team_id,
               create_date,
               // Content
-              desc,
+              desc: parsedDesc,
               file_size,
               lang,
               name,
               short_desc,
               track_url, // E.g. "assets/sample.mp3"
               video_url,
+              is_hot: is_hit,
+              director_name,
+              route_from,
+              route_to,
+              route,
               // Don't exist / rename accordingly later
-              is_hot: true,
-              director_name: null,
-              route_from: null,
-              route_to: null,
               map: null, // E.g. "assets/sample-map.png"
               members: [],
               // members: [
@@ -93,15 +164,8 @@ const config = {
               //     name: "Нурбек Эген",
               //   },
               // ]
-              route: [],
-              // route: [
-              //   {
-              //     name: "Парк полифилова",
-              //   },
-              // ]
             };
           });
-          console.log(plays);
         },
         error: function (data) {
           console.error(data);
@@ -169,7 +233,7 @@ const config = {
                           <span>${sizeString}</span>
                         </div>
                       </div>
-                      <div class="play-card__body-director">
+                      <div class="play-card__body-director text-truncate">
                         <span class="play-card__body-director-position">
                           Режиссер:
                         </span>
@@ -232,27 +296,29 @@ const config = {
         dataType: null,
         async: false,
         success: function (res) {
-          if (!res.success) {
-            return;
-          }
           const data = res.data;
           members = data.map((member) => {
-            const { avatar_url, id, role_id, team_id } = member;
+            // const { avatar_url, id, role_id, team_id } = member;
+            // const { desc, first_name, lang, last_name, middle_name } =
+            //   member.member_info[0];
+            // const { name_ru: role_ru, name_en, name_kg } = member.member_role;
             const {
+              avatar_url,
+              id,
               desc,
               first_name,
               lang,
               last_name,
               middle_name,
-            } = member.member_info[0];
-            const { name_ru: role_ru, name_en, name_kg } = member.member_role;
+            } = member;
+            const { name: role_name } = member.default_role;
 
             return {
               // Main
               id,
               avatar_url,
-              role_id,
-              team_id,
+              // role_id,
+              // team_id,
               // Content
               desc,
               first_name,
@@ -260,12 +326,12 @@ const config = {
               last_name,
               middle_name,
               // Role
-              role: role_ru,
+              // role: role_ru,
+              role: role_name,
               // Don't exist
               socials: [],
             };
           });
-          console.log(members);
         },
         error: function (data) {
           console.error(data);
@@ -290,14 +356,8 @@ const config = {
         $(this).empty();
 
         members_big.forEach((member) => {
-          const {
-            first_name,
-            last_name,
-            middle_name,
-            avatar_url,
-            desc,
-            role,
-          } = member;
+          const { first_name, last_name, middle_name, avatar_url, desc, role } =
+            member;
 
           let accoladesString = desc;
           // member.accolades.forEach((accolade) => {
@@ -353,14 +413,8 @@ const config = {
       $(".team-row").each(function () {
         $(this).empty();
         members.forEach((member) => {
-          const {
-            first_name,
-            last_name,
-            middle_name,
-            avatar_url,
-            desc,
-            role,
-          } = member;
+          const { first_name, last_name, middle_name, avatar_url, desc, role } =
+            member;
 
           $(this).append(`
             <div class="col-6 col-md-2">
@@ -451,8 +505,6 @@ const config = {
         requestObj[item.name] = item.value;
       });
 
-      console.log(requestObj);
-
       $.ajax({
         url,
         type: method,
@@ -484,8 +536,9 @@ const config = {
       .progress(function (instance, image) {
         if (instance.images) {
           let length = instance.images.length;
-          let loadedImages = instance.images.filter((image) => image.isLoaded)
-            .length;
+          let loadedImages = instance.images.filter(
+            (image) => image.isLoaded,
+          ).length;
 
           let percent = Math.floor((loadedImages / length) * 100);
 
@@ -493,9 +546,11 @@ const config = {
         }
       })
       .always(function (instance) {
-        if (!isPreloaded) {
-          finishPreload();
-        }
+        setTimeout(() => {
+          if (!isPreloaded) {
+            finishPreload();
+          }
+        }, 250);
       });
 
     // Timeout just in case (Keep in mind it won't trigger after critical js error)
@@ -658,6 +713,9 @@ const config = {
 
     $(window).on("scroll", function () {
       if ($(".main-header").length) {
+        if (!isPreloaded) {
+          return;
+        }
         let sticky = $(".section-hero").height();
 
         if (window.pageYOffset > sticky) {
@@ -732,6 +790,10 @@ const config = {
           .find(".overlay-cdk__content-wrap")
           .css({ transition: "600ms", transform: "translateY(0)" });
       }, 0);
+
+      $("#playPopupPlayerMin").html(`${0} мин`);
+      $("#playPopupPlayerSec").html(`${0} сек`);
+      $(".overlay-cdk__content-play-wrap")[0].scrollTop = 0;
 
       const id = $(this).data("id");
 
@@ -840,18 +902,33 @@ const config = {
 
       $("#playPopup .overlay-cdk__content-play-timeline").html(routeString);
 
-      $("#playPopup .overlay-cdk__content-play-team > .row").html(
-        membersString,
-      );
+      if (membersString) {
+        $(".overlay-cdk__content-play-team").removeClass("d-none");
+        $("#playPopup .overlay-cdk__content-play-team > .row").html(
+          membersString,
+        );
+      } else {
+        $(".overlay-cdk__content-play-team").addClass("d-none");
+      }
 
-      $("#playPopup .overlay-cdk__content-play-readers > .row").html(
-        readersString,
-      );
+      if (readersString) {
+        $(".overlay-cdk__content-play-readers").removeClass("d-none");
+        $("#playPopup .overlay-cdk__content-play-readers > .row").html(
+          readersString,
+        );
+      } else {
+        $(".overlay-cdk__content-play-readers").addClass("d-none");
+      }
 
-      $("#playPopup .overlay-cdk__content-play-map").attr("src", map);
+      if (map) {
+        $("#playPopup .overlay-cdk__content-play-map").removeClass("d-none");
+        $("#playPopup .overlay-cdk__content-play-map").attr("src", map);
+      } else {
+        $("#playPopup .overlay-cdk__content-play-map").addClass("d-none");
+      }
 
       $("#playPopup .overlay-cdk__content-play-description")
-        .text(desc)
+        .html(desc)
         .css("white-space", "break-spaces");
 
       // Rest goes here
@@ -859,13 +936,20 @@ const config = {
 
       // Popup mp3 player
       const popupPlayerVolVal = $("#playPopupPlayerVolume").val() / 100;
-      const popupPlayerMediaSrc = $("#playPopupPlayerSrc").val();
+      let popupPlayerMediaSrc = $("#playPopupPlayerSrc").val();
 
+      if (!popupPlayerMediaSrc) {
+        $(".overlay-cdk__content-play-col").addClass("d-none");
+        return;
+      }
+      $(".overlay-cdk__content-play-col").removeClass("d-none");
       popupSound = new Howl({
         src: popupPlayerMediaSrc,
         loop: false,
         preload: false,
         volume: popupPlayerVolVal,
+        html5: true,
+        format: ["mpeg", "mp3"],
         // volume: 0.05,
       });
 
