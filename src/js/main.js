@@ -1,9 +1,11 @@
 // Configs
 const config = {
   // membersUrl: "http://api.mestodteatr.kg/plays-service/members",
-  membersUrl: "http://api.mestodteatr.kg/plays-service/api/mobile/members",
+  membersUrl:
+    "http://api.mestodteatr.kg/plays-service/api/mobile/members?lang=ru",
   // playsUrl: "http://api.mestodteatr.kg/plays-service/plays",
-  playsUrl: "http://api.mestodteatr.kg/plays-service/api/mobile/plays?limit=5",
+  playsUrl:
+    "http://api.mestodteatr.kg/plays-service/api/mobile/plays?lang=ru&limit=5",
 };
 
 (function ($) {
