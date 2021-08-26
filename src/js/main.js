@@ -6,23 +6,48 @@ const config = {
   // playsUrl: "http://api.mestodteatr.kg/plays-service/plays",
   playsUrl:
     "http://api.mestodteatr.kg/plays-service/api/mobile/plays?lang=ru&limit=5",
+  settingsUrl: "http://api.mestodteatr.kg/pages-service/app/settings",
 };
 
 (function ($) {
   // Document ready
   $(function () {
-    // $.ajax({
-    //   url:
-    //     "http://api.mestodteatr.kg/file-manager/bp/file/2259b478-b7d2-4987-9d74-d37c993a3c33",
-    //   type: "GET",
-    //   dataType: null,
-    //   success: function (data) {
-    //     console.log(data);
-    //   },
-    //   error: function (data) {
-    //     console.error(data);
-    //   },
-    // });
+    // Load settings
+    getSettings();
+
+    function getSettings() {
+      $.ajax({
+        url: config.settingsUrl,
+        type: "GET",
+        dataType: null,
+        async: false,
+        success: function (res) {
+          if (!res.success || res.error) {
+            alert("Ошибка при загрузке настроек");
+            $(".settings-option__phone").html("N/A");
+            $(".settings-option__email").html("N/A");
+            return;
+          }
+
+          const data = res.data;
+          $(".settings-option__phone")
+            .html(data.phone)
+            .attr("href", "tel:" + data.phone);
+          $(".settings-option__email")
+            .html(data.email)
+            .attr("href", "mailto:" + data.email);
+
+          $(".settings-option__facebook").attr("href", data.facebook_url);
+          $(".settings-option__whatsapp").attr("href", data.whatsapp_url);
+          $(".settings-option__instagram").attr("href", data.instagram_url);
+
+          console.log(data);
+        },
+        error: function (data) {
+          console.error(data);
+        },
+      });
+    }
 
     // Load plays
     let plays = [];
@@ -699,6 +724,13 @@ const config = {
       if (e.target !== e.currentTarget) return;
 
       closeNavbarOverlay();
+    });
+
+    // Close mobile sidebar overlay on navigation
+    $(".main-header .navbar-nav .nav-item .nav-link").on("click", function () {
+      if ($(window).outerWidth(true) < 992) {
+        closeNavbarOverlay();
+      }
     });
 
     function closeNavbarOverlay() {
