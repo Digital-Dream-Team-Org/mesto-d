@@ -405,6 +405,35 @@ const config = {
             `;
           });
 
+          //   $(this).append(`
+          //   <div class="swiper-slide">
+          //     <div class="team-member-card-wrap">
+          //       <div class="team-member-card">
+          //         <div class="team-member-card__image-wrap">
+          //           <img
+          //             src="${avatar_url}"
+          //             alt="member"
+          //             class="team-member-card__image"
+          //           />
+          //         </div>
+          //         <div class="team-member-card__body">
+          //           <div class="team-member-card__body-name">
+          //             ${last_name} ${first_name} ${middle_name}
+          //           </div>
+          //           <div class="team-member-card__body-position">
+          //             ${role}
+          //           </div>
+          //           <div class="team-member-card__body-accolades">
+          //             ${accoladesString}
+          //           </div>
+          //           <div class="team-member-card__body-socials">
+          //             ${socialsString}
+          //           </div>
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>
+          // `);
           $(this).append(`
           <div class="swiper-slide">
             <div class="team-member-card-wrap">
@@ -419,15 +448,6 @@ const config = {
                 <div class="team-member-card__body">
                   <div class="team-member-card__body-name">
                     ${last_name} ${first_name} ${middle_name}
-                  </div>
-                  <div class="team-member-card__body-position">
-                    ${role}
-                  </div>
-                  <div class="team-member-card__body-accolades">
-                    ${accoladesString}
-                  </div>
-                  <div class="team-member-card__body-socials">
-                    ${socialsString}
                   </div>
                 </div>
               </div>
