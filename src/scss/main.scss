@@ -139,6 +139,12 @@ a {
     rgba(0, 0, 0, 0.6) 0%,
     rgba(0, 0, 0, 0) 100%
   );
+
+  &.static {
+    position: static;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 .navbar-toggler {
   border: none !important;

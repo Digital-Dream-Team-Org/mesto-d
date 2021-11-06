@@ -40,8 +40,6 @@ const config = {
           $(".settings-option__facebook").attr("href", data.facebook_url);
           $(".settings-option__whatsapp").attr("href", data.whatsapp_url);
           $(".settings-option__instagram").attr("href", data.instagram_url);
-
-          console.log(data);
         },
         error: function (data) {
           console.error(data);
@@ -535,9 +533,6 @@ const config = {
       // });
     }
 
-    // Load preview player file and data ?
-    function getPreview() {}
-
     // Ajax form submit / Аякс форма настраивается тут
     $(".ajax-contact-form").on("submit", function (e) {
       e.preventDefault();
@@ -766,7 +761,7 @@ const config = {
     }
 
     $(window).on("scroll", function () {
-      if ($(".main-header").length) {
+      if ($(".main-header").length && !$(".main-header").hasClass("static")) {
         if (!isPreloaded) {
           return;
         }
@@ -1168,108 +1163,116 @@ const config = {
     }
 
     // Preview mp3 player
-    const previewPlayerVolVal = $("#previewPlayerVolume").val() / 100;
-    const previewPlayerMediaSrc = $("#previewPlayerSrc").val();
+    if ($(".preview-player").length) {
+      const previewPlayerVolVal = $("#previewPlayerVolume").val() / 100;
+      const previewPlayerMediaSrc = $("#previewPlayerSrc").val();
 
-    const previewSound = new Howl({
-      src: previewPlayerMediaSrc,
-      loop: false,
-      preload: false,
-      volume: previewPlayerVolVal,
-      // volume: 0.05,
-    });
+      const previewSound = new Howl({
+        src: previewPlayerMediaSrc,
+        loop: false,
+        preload: false,
+        volume: previewPlayerVolVal,
+        // volume: 0.05,
+      });
 
-    $("#previewPlayerVolume").on("input", function () {
-      const vol = $(this).val() / 100;
-      if (previewSound) {
-        previewSound.volume(vol);
-      }
-    });
-
-    let previewMusicLoaded = false;
-    let previewMusicLoading = false;
-    $("#playPreview").on("click", function () {
-      if (previewMusicLoading) {
-        return;
-      }
-      if (!previewMusicLoaded) {
-        $(this).addClass("active");
-        previewMusicLoading = true;
-        return previewSound.load();
-      }
-      if (previewSound && previewSound.playing()) {
-        // return previewSound.pause();
-        return previewSound.stop();
-      }
-      previewSound.play();
-    });
-    // Clear listener after first call.
-    previewSound.once("load", function () {
-      previewSound.play();
-      previewMusicLoaded = true;
-      previewMusicLoading = false;
-    });
-
-    let previewProgressInterval = null;
-    previewSound.on("play", function () {
-      $("#playPreview").addClass("active");
-      setTimeout(() => {
-        $("#previewPlayerProgress").css("transition", "2000ms");
-      }, 200);
-
-      if (previewProgressInterval !== null) {
-        clearInterval(previewProgressInterval);
-        previewProgressInterval = null;
-      }
-      previewProgressInterval = setInterval(() => {
-        if (previewSound.playing()) {
-          let duration = Math.floor(previewSound.duration());
-          let position = Math.floor(previewSound.seek());
-          let percent = Math.round((position / duration) * 100);
-
-          let durationMin = String(Math.floor(duration / 60)).padStart(2, "0");
-          let durationSec = String(duration - durationMin * 60).padStart(
-            2,
-            "0",
-          );
-
-          let positionMin = String(Math.floor(position / 60)).padStart(2, "0");
-          let positionSec = String(position - positionMin * 60).padStart(
-            2,
-            "0",
-          );
-
-          $("#previewPlayerPosition").html(`${positionMin}:${positionSec}`);
-          $("#previewPlayerDuration").html(`${durationMin}:${durationSec}`);
-
-          $("#previewPlayerProgress").css("width", `${percent}%`);
+      $("#previewPlayerVolume").on("input", function () {
+        const vol = $(this).val() / 100;
+        if (previewSound) {
+          previewSound.volume(vol);
         }
-      }, 500);
-    });
-    previewSound.on("stop", function () {
-      $("#playPreview").removeClass("active");
-      $("#previewPlayerProgress").css("transition", "");
-      if (previewProgressInterval !== null) {
-        clearInterval(previewProgressInterval);
-        previewProgressInterval = null;
-      }
-    });
-    previewSound.on("end", function () {
-      $("#playPreview").removeClass("active");
-      $("#previewPlayerProgress").css("transition", "");
-      if (previewProgressInterval !== null) {
-        clearInterval(previewProgressInterval);
-        previewProgressInterval = null;
-      }
-    });
-    previewSound.on("pause", function () {
-      $("#playPreview").removeClass("active");
-      $("#previewPlayerProgress").css("transition", "");
-      if (previewProgressInterval !== null) {
-        clearInterval(previewProgressInterval);
-        previewProgressInterval = null;
-      }
-    });
+      });
+
+      let previewMusicLoaded = false;
+      let previewMusicLoading = false;
+      $("#playPreview").on("click", function () {
+        if (previewMusicLoading) {
+          return;
+        }
+        if (!previewMusicLoaded) {
+          $(this).addClass("active");
+          previewMusicLoading = true;
+          return previewSound.load();
+        }
+        if (previewSound && previewSound.playing()) {
+          // return previewSound.pause();
+          return previewSound.stop();
+        }
+        previewSound.play();
+      });
+      // Clear listener after first call.
+      previewSound.once("load", function () {
+        previewSound.play();
+        previewMusicLoaded = true;
+        previewMusicLoading = false;
+      });
+
+      let previewProgressInterval = null;
+      previewSound.on("play", function () {
+        $("#playPreview").addClass("active");
+        setTimeout(() => {
+          $("#previewPlayerProgress").css("transition", "2000ms");
+        }, 200);
+
+        if (previewProgressInterval !== null) {
+          clearInterval(previewProgressInterval);
+          previewProgressInterval = null;
+        }
+        previewProgressInterval = setInterval(() => {
+          if (previewSound.playing()) {
+            let duration = Math.floor(previewSound.duration());
+            let position = Math.floor(previewSound.seek());
+            let percent = Math.round((position / duration) * 100);
+
+            let durationMin = String(Math.floor(duration / 60)).padStart(
+              2,
+              "0",
+            );
+            let durationSec = String(duration - durationMin * 60).padStart(
+              2,
+              "0",
+            );
+
+            let positionMin = String(Math.floor(position / 60)).padStart(
+              2,
+              "0",
+            );
+            let positionSec = String(position - positionMin * 60).padStart(
+              2,
+              "0",
+            );
+
+            $("#previewPlayerPosition").html(`${positionMin}:${positionSec}`);
+            $("#previewPlayerDuration").html(`${durationMin}:${durationSec}`);
+
+            $("#previewPlayerProgress").css("width", `${percent}%`);
+          }
+        }, 500);
+      });
+      previewSound.on("stop", function () {
+        $("#playPreview").removeClass("active");
+        $("#previewPlayerProgress").css("transition", "");
+        if (previewProgressInterval !== null) {
+          clearInterval(previewProgressInterval);
+          previewProgressInterval = null;
+        }
+      });
+      previewSound.on("end", function () {
+        $("#playPreview").removeClass("active");
+        $("#previewPlayerProgress").css("transition", "");
+        if (previewProgressInterval !== null) {
+          clearInterval(previewProgressInterval);
+          previewProgressInterval = null;
+        }
+      });
+      previewSound.on("pause", function () {
+        $("#playPreview").removeClass("active");
+        $("#previewPlayerProgress").css("transition", "");
+        if (previewProgressInterval !== null) {
+          clearInterval(previewProgressInterval);
+          previewProgressInterval = null;
+        }
+      });
+    }
   });
 })(jQuery);
 
